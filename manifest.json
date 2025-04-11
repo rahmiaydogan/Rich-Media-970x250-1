@@ -1,0 +1,17 @@
+{
+    "version": "1.0",
+    "uniqueId": "",
+    "title": "QNB_Dijital_Zeka_Q_970x250",
+    "description": "",
+    "width": 970,
+    "height": 250,
+    "events": {
+        "enabled": 0,
+        "list": {
+        }
+    },
+    "clicktags": {
+        "clickTAG": "https://www.qnbfinansbank.com/724-bankacilik/q?utm_source=all-in&utm_medium=masthead&utm_campaign=q-teknolojik-kisa&utm_content=h23"
+    },
+    "source": "index.html"
+}

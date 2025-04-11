@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <!-- Adform API Script -->
+    <script type="text/javascript">
+        document.write('<script src="'+ (window.API_URL || 'https://s1.adform.net/banners/scripts/rmb/Adform.DHTML.js?bv='+ Math.random()) +'"><\/script>');
+    </script>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="ad.size" content="width=970,height=250">
+    <style>
+    * {
+        margin: 0;
+        padding: 0;
+        -webkit-box-sizing: border-box;
+        box-sizing: border-box;
+        outline: none;
+        list-style: none;
+    }
+    html {
+        cursor: pointer;
+    }
+    .video-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    #player2{
+        width: 280px;
+        height: 158px;
+        z-index: -1;
+        left: 671px;
+        top: 46px;
+        position: absolute;
+        border: 1px solid #fff;
+        display: none;
+    }
+    #player1{
+        width: 342px;
+        height: 194px;
+        position: absolute;
+        left: 566px;
+        top: 29px;
+        border: 1px solid #fff;
+    }
+    #playButton {
+        position: absolute;
+        left: 914px;
+        top: 112px;
+        border: none;
+        background-image: url('ok.png');
+        width: 30px;
+        height: 29px;
+        background-color: transparent;
+        display: none;
+    }
+    #arkaplan{
+        position: absolute;
+        background-image: url('arkaplan.jpg');
+        width: 970px;
+        height: 250px;
+        top: 0;
+        left: 0;
+        z-index: -10;
+    }
+    #asli-1{
+        position: absolute;
+        background-image: url('asli-1.png');
+        width: 970px;
+        height: 250px;
+        top: 0;
+        left: -40px;
+        z-index: -9;
+        opacity: 0;
+    }
+    #q-1{
+        position: absolute;
+        background-image: url('q-1.png');
+        width: 970px;
+        height: 250px;
+        top: 0;
+        left: 40px;
+        z-index: -9;
+        opacity: 0;
+    }
+    #text-1{
+        position: absolute;
+        background-image: url('text-1.png');
+        width: 970px;
+        height: 250px;
+        top: -40px;
+        left: 0;
+        z-index: -9;
+        opacity: 0;
+    }
+    #cta{
+        position: absolute;
+        background-image: url('cta.png');
+        width: 970px;
+        height: 250px;
+        top: 40px;
+        left: 0;
+        z-index: -3;
+        opacity: 0;
+    }
+    #border{
+        position: absolute;
+        width: 970px;
+        height: 250px;
+        top: 0;
+        left: 0;
+        z-index: -4;
+        border: 1px solid #ececec;
+    }
+    #asli-2{
+        position: absolute;
+        background-image: url('asli-2.png');
+        width: 970px;
+        height: 250px;
+        top: 0;
+        left: -40px;
+        z-index: -9;
+        opacity: 0;
+    }
+    #q-2{
+        position: absolute;
+        background-image: url('q-2.png');
+        width: 970px;
+        height: 250px;
+        top: 0;
+        left: 40px;
+        z-index: -9;
+        opacity: 0;
+    }
+    #text-2{
+        position: absolute;
+        background-image: url('text-2.png');
+        width: 970px;
+        height: 250px;
+        top: -40px;
+        left: 0;
+        z-index: -9;
+        opacity: 0;
+    }
+    #player2iframe {
+        position: absolute;
+    }
+    #ytb-button1{
+        position: absolute;
+        background-image: url(ytb-button.png);
+        width: 340px;
+        height: 192px;
+        top: 0;
+        left: 0;
+        z-index: 3;
+        opacity: 1;
+    }
+    #ytb-button2{
+        position: absolute;
+        background-image: url(ytb-button.png);
+        width: 280px;
+        height: 158px;
+        top: 0;
+        left: 0;
+        z-index: 3;
+        opacity: 1;
+    }
+    </style>
+    </head>
+    <body>
+        <div class="video-container">
+            <div id="player1" class="video">
+                <div id="ytb-button1"></div>
+                <iframe
+                    id="player1iframe"
+                    width="340"
+                    height="192"
+                    src="https://www.youtube.com/embed/-aRgclSIIn8?enablejsapi=1&autoplay=1&mute=1&loop=1&rel=0&showinfo=0&controls=0"
+                    frameborder="0"
+                    allow="autoplay; encrypted-media"
+                    allowfullscreen
+                ></iframe>
+            </div>
+            <div id="player2" class="video2">
+                <div id="ytb-button2"></div>
+                <iframe
+                    id="player2iframe"
+                    width="278"
+                    height="156"
+                    src="https://www.youtube.com/embed/Ck7uduJquds?enablejsapi=1&autoplay=0&mute=1&loop=1&rel=0&showinfo=0&controls=0"
+                    frameborder="0"
+                    allow="autoplay; encrypted-media"
+                    allowfullscreen
+                ></iframe>
+            </div>
+        </div>
+        
+        <button id="playButton" onclick="togglePlay()"></button>
+        <div id="asli-1"></div>
+        <div id="q-1"></div>
+        <div id="text-1"></div>
+
+        <div id="asli-2"></div>
+        <div id="q-2"></div>
+        <div id="text-2"></div>
+
+        <div id="border"></div>
+        <div id="cta"></div>
+        <script>
+            var clickArea = document.getElementById('cta');
+        
+            var clickTAGvalue = dhtml.getVar('clickTAG', 'https://www.qnbfinansbank.com/724-bankacilik/q?utm_source=all-in&utm_medium=masthead&utm_campaign=q-teknolojik-kisa&utm_content=h23');
+            var landingpagetarget = dhtml.getVar('landingPageTarget', '_blank');
+        
+            clickArea.onclick = function() {
+            window.open(clickTAGvalue,landingpagetarget);
+            }
+        </script>
+        
+        <div id="arkaplan"></div>
+        
+        <script>
+        var asli_1 = document.getElementById("asli-1");
+        var q_1 = document.getElementById("q-1");
+        var text_1 = document.getElementById("text-1");
+
+        var asli_2 = document.getElementById("asli-2");
+        var q_2 = document.getElementById("q-2");
+        var text_2 = document.getElementById("text-2");
+
+        var cta = document.getElementById("cta");
+
+        var video2 = document.getElementById("player2");
+        var playButton = document.getElementById("playButton");
+
+        setTimeout(function() {
+            video2.style.display = "block";
+            playButton.style.display = "block";
+        }, 300);
+
+        function animation_first(){
+            setTimeout(function() {
+                asli_1.style.transition = "all 1s ease";
+                asli_1.style.opacity = "1";
+                asli_1.style.left = "0";
+                q_1.style.transition = "all 2s ease";
+                q_1.style.opacity = "1";
+                q_1.style.left = "0";
+                text_1.style.transition = "all 3s ease";
+                text_1.style.opacity = "1";
+                text_1.style.top = "0";
+            }, 400);
+
+            setTimeout(function() {
+                cta.style.transition = "all 1s ease";
+                cta.style.opacity = "1";
+                cta.style.top = "0";
+            }, 2400);
+        }
+
+        function animation_first2(){
+            setTimeout(function() {
+                asli_2.style.transition = "all 0.5s ease";
+                asli_2.style.opacity = "0";
+                asli_2.style.left = "-40px";
+                q_2.style.transition = "all 1s ease";
+                q_2.style.opacity = "0";
+                q_2.style.left = "40px";
+                text_2.style.transition = "all 1.5s ease";
+                text_2.style.opacity = "0";
+                text_2.style.top = "-40px";
+            }, 100);
+        }
+
+        animation_first();
+
+        function animation_second(){
+            setTimeout(function() {
+                asli_2.style.transition = "all 1s ease";
+                asli_2.style.opacity = "1";
+                asli_2.style.left = "0";
+                q_2.style.transition = "all 2s ease";
+                q_2.style.opacity = "1";
+                q_2.style.left = "0";
+                text_2.style.transition = "all 3s ease";
+                text_2.style.opacity = "1";
+                text_2.style.top = "0";
+            }, 400);
+        }
+
+        function animation_second2(){
+            setTimeout(function() {
+                asli_1.style.transition = "all 0.5s ease";
+                asli_1.style.opacity = "0";
+                asli_1.style.left = "-40px";
+                q_1.style.transition = "all 1s ease";
+                q_1.style.opacity = "0";
+                q_1.style.left = "40px";
+                text_1.style.transition = "all 1.5s ease";
+                text_1.style.opacity = "0";
+                text_1.style.top = "-40px";
+            }, 100);
+        }
+
+        var player1, player2;
+        var isPlaying1 = true;
+        var isPlaying2 = false;
+
+        var ytb_button1 = document.getElementById('ytb-button1');
+        var ytb_button2 = document.getElementById('ytb-button2');
+
+        function onYouTubeIframeAPIReady() {
+            player1 = new YT.Player('player1iframe', {
+                events: {
+                    'onReady': onPlayerReady
+                }
+            });
+
+            player2 = new YT.Player('player2iframe', {
+                events: {
+                    'onReady': onPlayerReady
+                }
+            });
+            
+            ytb_button1.addEventListener('click', function() {
+                ytb_button1.style.display = "none";
+                player1.seekTo(0);
+                player1.unMute();
+                dhtml.sendEvent(3, "birinci_icin_ytb-button_tiklandi");
+            });
+            ytb_button2.addEventListener('click', function() {
+                ytb_button2.style.display = "none";
+                player2.seekTo(0);
+                player2.unMute();
+                dhtml.sendEvent(4, "ikinci_icin_ytb-button_tiklandi");
+            });
+                
+        }
+
+        function onPlayerReady(event) {
+            event.target.mute();
+            event.target.setLoop(true);
+            // Yeni bir oynatma döngüsü eklemek için
+            event.target.addEventListener('onStateChange', function (state) {
+                if (state.data === YT.PlayerState.ENDED) {
+                    event.target.seekTo(0); // Videonun başa sarılmasını sağlar
+                    event.target.playVideo(); // Videonun tekrar oynamasını sağlar
+                    dhtml.sendEvent(5, "video_izlendi");
+                }
+            });
+        }
+
+        player1div = document.getElementById("player1");
+        player2div = document.getElementById("player2");
+
+        function togglePlay() {
+            if (isPlaying1) {
+                player1div.style.transition = "all 1s ease";
+                player1div.style.width = "278px";
+                player1div.style.height = "156px";
+                player1div.style.left = "671px";
+                player1div.style.top = "46px";
+                player1div.style.position = "absolute";
+                player1div.style.zIndex = '-1';
+
+                player2iframe.style.transition = "all 1s ease";
+                player2iframe.style.width = "340px";
+                player2iframe.style.height = "190px";
+                player2iframe.style.left = "0";
+
+                player1iframe.style.transition = "all 1s ease";
+                player1iframe.style.width = "276px";
+                player1iframe.style.height = "154px";
+                player1iframe.style.left = "0";
+
+                player2div.style.transition = "all 1s ease";
+                player2div.style.width = "342px";
+                player2div.style.height = "194px";
+                player2div.style.left = "566px";
+                player2div.style.top = "29px";
+                player2div.style.position = "absolute";
+                player2div.style.zIndex = '1';
+
+                ytb_button1.style.transition = "all 1s ease";
+                ytb_button1.style.width = "278px";
+                ytb_button1.style.height = "156px";
+
+                ytb_button2.style.transition = "all 1s ease";
+                ytb_button2.style.width = "340px";
+                ytb_button2.style.height = "192px";
+
+                player1.pauseVideo();
+                player2.playVideo();
+                isPlaying1 = false;
+                isPlaying2 = true;
+
+                animation_second();
+                animation_second2();
+
+                dhtml.sendEvent(1, "ikinci_video_icin_ok_tiklandi");
+
+            } else {
+                player2div.style.transition = "all 1s ease";
+                player2div.style.width = "278px";
+                player2div.style.height = "156px";
+                player2div.style.left = "671px";
+                player2div.style.top = "46px";
+                player2div.style.position = "absolute";
+                player2div.style.zIndex = '-1';
+
+                player1iframe.style.transition = "all 1s ease";
+                player1iframe.style.width = "340px";
+                player1iframe.style.height = "190px";
+                player1iframe.style.left = "0";
+
+                player2iframe.style.transition = "all 1s ease";
+                player2iframe.style.width = "276px";
+                player2iframe.style.height = "154px";
+                player2iframe.style.left = "0";
+
+                player1div.style.transition = "all 1s ease";
+                player1div.style.width = "342px";
+                player1div.style.height = "194px";
+                player1div.style.left = "566px";
+                player1div.style.top = "29px";
+                player1div.style.position = "absolute";
+                player1div.style.zIndex = '1';
+
+                ytb_button1.style.transition = "all 1s ease";
+                ytb_button1.style.width = "340px";
+                ytb_button1.style.height = "192px";
+
+                ytb_button2.style.transition = "all 1s ease";
+                ytb_button2.style.width = "278px";
+                ytb_button2.style.height = "156px";
+
+                player1.playVideo();
+                player2.pauseVideo();
+                isPlaying1 = true;
+                isPlaying2 = false;
+
+                animation_first();
+                animation_first2();
+
+                dhtml.sendEvent(2, "birinci_video_icin_ok_tiklandi");
+            }
+        }
+
+    </script>
+
+    <script src="https://www.youtube.com/iframe_api"></script>
+</body>
+</html>
