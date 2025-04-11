@@ -1,0 +1,1500 @@
+<!DOCTYPE html>
+<head>
+<title>Adform Toolkit Ad</title>
+<meta charset="UTF-8">
+
+<!-- Adform API Script -->
+<script type="text/javascript">/*#import:common/import*/
+(window.components = window.components || [])
+  /*#video.import:video/import.2*/
+components.push('VideoPlayer')
+/*#/#*/
+  ;
+/*#/#*/
+document.write('<script src="'+ (window.API_URL || 'https://s1.adform.net/banners/scripts/rmb/Adform.DHTML.js?bv='+ Math.random()) +'"><\/script>');
+</script>
+
+<style>
+body {
+  background: #fff;
+}
+</style>
+
+<!--#head:common/head-->
+<!--#animations.head:animations/globalhead.1-->
+<script>
+this.Adf=this.Adf||{},this.Adf.animate=function(){"use strict";function t(t){var n={};for(var i in t)n[i]=t[i];return n}function n(){this.elementsIndex=[]}function i(n,i,e,r){this.isActive=!1,this.elementId=e.getElementId(r.element),this.groups=r.groups||[],this.element=r.element,this.toProps=r.settings.toProps,this.fromParams=r.settings.fromParams||null,this._toPropsCopy=t(r.settings.toProps),this.tweenSettings=r.settings,this.onUpdate=r.onUpdate,this.activationDelay=r.activationDelay,this.sharedParamsManager=i,this.AdfTween=n}function e(t,n,i,e){this.managers={GAM:t,GSM:n,SPM:i,ACM:e}}function r(t){this._params={},this._initialParamsCopy={},this.elementIdTracker=t}function o(){this.animations=[]}function a(t){this.startedAnimations={},this.sharedParamsManager=t}function s(){this.activeGroups={},this.subscribers={}}function u(t){this.state={},this.sharedParamsManager=t}function c(t){var n=new i(f,d,m,t);return p.register(n),w.adjustElementParamIfNeeded(n),n}function h(t){requestAnimationFrame(h),f.update(t)}!function(){for(var t=0,n=["ms","moz","webkit","o"],i=0;i<n.length&&!window.requestAnimationFrame;++i)window.requestAnimationFrame=window[n[i]+"RequestAnimationFrame"],window.cancelAnimationFrame=window[n[i]+"CancelAnimationFrame"]||window[n[i]+"CancelRequestAnimationFrame"];window.requestAnimationFrame||(window.requestAnimationFrame=function(n,i){var e=(new Date).getTime(),r=Math.max(0,16-(e-t)),o=window.setTimeout(function(){n(e+r)},r);return t=e+r,o}),window.cancelAnimationFrame||(window.cancelAnimationFrame=function(t){clearTimeout(t)})}(),function(){if("performance"in window==!1&&(window.performance={}),Date.now=Date.now||function(){return(new Date).getTime()},"now"in window.performance==!1){var t=window.performance.timing&&window.performance.timing.navigationStart?window.performance.timing.navigationStart:Date.now();window.performance.now=function(){return Date.now()-t}}}();var f=function(){var t=[];return{getAll:function(){return t},removeAll:function(){t=[]},add:function(n){t.push(n)},remove:function(n){var i=t.indexOf(n);i!==-1&&t.splice(i,1)},update:function(n){if(0===t.length)return!1;var i=0;for(n=void 0!==n?n:window.performance.now();i<t.length;)t[i].update(n)?i++:t.splice(i,1);return!0}}}();f.Tween=function(t){var n=t,i={},e={},r={},o=1e3,a=0,s=!1,u=!1,c=0,h=null,m=null,p=f.Easing.Linear.None,l=f.Interpolation.Linear,d=[],v=null,w=null,g=!1,I=null,M=null,P=null,y=!1;for(var A in t)i[A]=parseFloat(t[A],10);this.to=function(t,n){return void 0!==n&&(o=n),e=t,this},this.start=function(t){f.add(this),u=!0,v&&v(),g=!1,h=void 0!==t?t:window.performance.now(),h+=c;for(var i in e)if(e[i]instanceof Array){if(0===e[i].length)continue;e[i]=[n[i]].concat(e[i])}return this},this.stop=function(){return u?(f.remove(this),u=!1,null!==P&&P.call(n),this.stopChainedTweens(),this):this},this.pause=function(){return u?(f.remove(this),u=!1,this):this},this.resume=function(){return u?this:(f.add(this),u=!0,this)},this.stopChainedTweens=function(){for(var t=0,n=d.length;t<n;t++)d[t].stop()},this.delay=function(t){return c=t,this},this.repeat=function(t){return a=t,this},this.yoyo=function(t){return s=t,this},this.easing=function(t){return p=t,this},this.interpolation=function(t){return l=t,this},this.chain=function(){return d=arguments,this},this.onInitStart=function(t){return v=t,this},this.onStart=function(t){return w=t,this},this.onUpdate=function(t){return I=t,this},this.onComplete=function(t){return M=t,this},this.onStop=function(t){return P=t,this},this.update=function(f){var v,P,A;if(f<h)return!0;if(g===!1&&(null!==w&&w.call(n),g=!0),!y){for(var S in e)void 0!==i[S]&&(i[S]=parseFloat(t[S],10),i[S]instanceof Array==!1&&(i[S]*=1),r[S]=i[S]);y=!0,m=window.performance.now()}P=(f-h)/o,P=P>1?1:P,A=p(P);for(v in e)if(void 0!==i[v]){var b=i[v]||0,O=e[v];O instanceof Array?n[v]=l(O,A):("string"==typeof O&&(O=O.startsWith("+")||O.startsWith("-")?b+parseFloat(O,10):parseFloat(O,10)),"number"==typeof O&&(n[v]=b+(O-b)*A))}if(null!==I&&I.call(n,A),1===P){if(a>0){isFinite(a)&&a--;for(v in r){if("string"==typeof e[v]&&(r[v]=r[v]+parseFloat(e[v],10)),s){var G=r[v];r[v]=e[v],e[v]=G}i[v]=r[v]}return h=f+c,!0}u=!1,null!==M&&M.call(n);for(var C=0,E=d.length;C<E;C++)d[C].start(h+o);return!1}return!0}},f.Easing={Linear:{None:function(t){return t}},Quadratic:{In:function(t){return t*t},Out:function(t){return t*(2-t)},InOut:function(t){return(t*=2)<1?.5*t*t:-.5*(--t*(t-2)-1)}},Cubic:{In:function(t){return t*t*t},Out:function(t){return--t*t*t+1},InOut:function(t){return(t*=2)<1?.5*t*t*t:.5*((t-=2)*t*t+2)}},Quartic:{In:function(t){return t*t*t*t},Out:function(t){return 1- --t*t*t*t},InOut:function(t){return(t*=2)<1?.5*t*t*t*t:-.5*((t-=2)*t*t*t-2)}},Quintic:{In:function(t){return t*t*t*t*t},Out:function(t){return--t*t*t*t*t+1},InOut:function(t){return(t*=2)<1?.5*t*t*t*t*t:.5*((t-=2)*t*t*t*t+2)}},Sinusoidal:{In:function(t){return 1-Math.cos(t*Math.PI/2)},Out:function(t){return Math.sin(t*Math.PI/2)},InOut:function(t){return.5*(1-Math.cos(Math.PI*t))}},Exponential:{In:function(t){return 0===t?0:Math.pow(1024,t-1)},Out:function(t){return 1===t?1:1-Math.pow(2,-10*t)},InOut:function(t){return 0===t?0:1===t?1:(t*=2)<1?.5*Math.pow(1024,t-1):.5*(-Math.pow(2,-10*(t-1))+2)}},Circular:{In:function(t){return 1-Math.sqrt(1-t*t)},Out:function(t){return Math.sqrt(1- --t*t)},InOut:function(t){return(t*=2)<1?-.5*(Math.sqrt(1-t*t)-1):.5*(Math.sqrt(1-(t-=2)*t)+1)}},Elastic:{In:function(t){var n,i=.1,e=.4;return 0===t?0:1===t?1:(!i||i<1?(i=1,n=e/4):n=e*Math.asin(1/i)/(2*Math.PI),-(i*Math.pow(2,10*(t-=1))*Math.sin((t-n)*(2*Math.PI)/e)))},Out:function(t){var n,i=.1,e=.4;return 0===t?0:1===t?1:(!i||i<1?(i=1,n=e/4):n=e*Math.asin(1/i)/(2*Math.PI),i*Math.pow(2,-10*t)*Math.sin((t-n)*(2*Math.PI)/e)+1)},InOut:function(t){var n,i=.1,e=.4;return 0===t?0:1===t?1:(!i||i<1?(i=1,n=e/4):n=e*Math.asin(1/i)/(2*Math.PI),(t*=2)<1?-.5*(i*Math.pow(2,10*(t-=1))*Math.sin((t-n)*(2*Math.PI)/e)):i*Math.pow(2,-10*(t-=1))*Math.sin((t-n)*(2*Math.PI)/e)*.5+1)}},Back:{In:function(t){var n=1.70158;return t*t*((n+1)*t-n)},Out:function(t){var n=1.70158;return--t*t*((n+1)*t+n)+1},InOut:function(t){var n=2.5949095;return(t*=2)<1?.5*(t*t*((n+1)*t-n)):.5*((t-=2)*t*((n+1)*t+n)+2)}},Bounce:{In:function(t){return 1-f.Easing.Bounce.Out(1-t)},Out:function(t){return t<1/2.75?7.5625*t*t:t<2/2.75?7.5625*(t-=1.5/2.75)*t+.75:t<2.5/2.75?7.5625*(t-=2.25/2.75)*t+.9375:7.5625*(t-=2.625/2.75)*t+.984375},InOut:function(t){return t<.5?.5*f.Easing.Bounce.In(2*t):.5*f.Easing.Bounce.Out(2*t-1)+.5}}},f.Interpolation={Linear:function(t,n){var i=t.length-1,e=i*n,r=Math.floor(e),o=f.Interpolation.Utils.Linear;return n<0?o(t[0],t[1],e):n>1?o(t[i],t[i-1],i-e):o(t[r],t[r+1>i?i:r+1],e-r)},Bezier:function(t,n){for(var i=0,e=t.length-1,r=Math.pow,o=f.Interpolation.Utils.Bernstein,a=0;a<=e;a++)i+=r(1-n,e-a)*r(n,a)*t[a]*o(e,a);return i},CatmullRom:function(t,n){var i=t.length-1,e=i*n,r=Math.floor(e),o=f.Interpolation.Utils.CatmullRom;return t[0]===t[i]?(n<0&&(r=Math.floor(e=i*(1+n))),o(t[(r-1+i)%i],t[r],t[(r+1)%i],t[(r+2)%i],e-r)):n<0?t[0]-(o(t[0],t[0],t[1],t[1],-e)-t[0]):n>1?t[i]-(o(t[i],t[i],t[i-1],t[i-1],e-i)-t[i]):o(t[r?r-1:0],t[r],t[i<r+1?i:r+1],t[i<r+2?i:r+2],e-r)},Utils:{Linear:function(t,n,i){return(n-t)*i+t},Bernstein:function(t,n){var i=f.Interpolation.Utils.Factorial;return i(t)/i(n)/i(t-n)},Factorial:function(){var t=[1];return function(n){var i=1;if(t[n])return t[n];for(var e=n;e>1;e--)i*=e;return t[n]=i,i}}(),CatmullRom:function(t,n,i,e,r){var o=.5*(i-t),a=.5*(e-n),s=r*r,u=r*s;return(2*n-2*i+o+a)*u+(-3*n+3*i-2*o-a)*s+o*r+n}}},n.prototype.getElementId=function(t){return this.elementsIndex.indexOf(t)>-1?this.elementsIndex.indexOf(t):this.elementsIndex.push(t)-1},i.prototype.makeTween=function(){var n=this,i=this.sharedParamsManager.getParams(this.elementId),e=this.tweenSettings;this.toProps=t(this._toPropsCopy),this.tween=new this.AdfTween.Tween(i).to(this.toProps,e.duration).easing(e.easing||this.AdfTween.Easing.Linear.None).repeat(e.repeat===1/0?e.repeat:Math.max(parseInt((e.repeat||0)-1),0)).yoyo(e.yoyo||!1).onUpdate(function(){n.onUpdate(n.element,i)})},i.prototype.activate=function(t){0===this.activationDelay?this.tween.start(t):this.tween.start(t+this.activationDelay)},e.prototype.startAnimationsGroup=function(t,n,i){var e=this,r=this.managers;if(!r.GSM.isGroupInProgress(t)){for(var o=window.performance.now(),a=r.GAM.getByGroup(t),s=0;s<a.length;s++)a[s].makeTween(),this._hookToLifecycleManagers(a[s]),a[s].activate(o);(i||n)&&r.GSM.subscribe(t,function(r){n&&n>1?(e._resetAnimationsToStartPosition(a),e.startAnimationsGroup(t,n-1,i)):i&&i(r)})}},e.prototype.stopAnimationsGroup=function(t){for(var n=this.managers.GAM.getByGroup(t),i=0;i<n.length;i++)n[i].tween.stop();this._resetAnimationsToStartPosition(n)},e.prototype._resetAnimationsToStartPosition=function(t){var n={};t.forEach(function(t){t.fromParams&&Object.keys(t.fromParams).forEach(function(i){(!n[i]||n[i].activationDelay>t.activationDelay)&&(n[i]=t)})});var i=this.managers.SPM.getParams(t[0].elementId);Object.keys(n).forEach(function(t){i[t]=n[t].fromParams[t]}),t.forEach(function(t,n){t.onUpdate(t.element,i)},this)},e.prototype._hookToLifecycleManagers=function(t){function n(){r.GSM.onInitStart(t.groups),r.ACM.onInitStart(t)}function i(){r.ACM.onStart(t)}function e(){r.ACM.onStopComplete(t),r.GSM.onStopComplete(t.groups)}var r=this.managers;t.tween.onInitStart(n).onStart(i).onStop(e).onComplete(e)},r.prototype.getParams=function(t){if(!this._params[t])throw Error("You must set initial Param state for element");return this._params[t]},r.prototype.adjustParams=function(t,n){var i=this._params[t];for(var e in n)i[e]=n[e]},r.prototype.reset=function(n){this._params[n]=t(this._initialParamsCopy[n])},r.prototype.setInitialParamsForElement=function(n,i){var e=this.elementIdTracker.getElementId(n);this._params[e]=i,this._initialParamsCopy[e]=t(i)},o.prototype.register=function(t){this.animations.push(t)},o.prototype.getByGroup=function(t){return this.animations.filter(function(n){return n.groups.indexOf(t)>-1})},a.prototype.onInitStart=function(t){t.isActive=!1,this.startedAnimations[t.elementId]?this.startedAnimations[t.elementId].push(t):this.startedAnimations[t.elementId]=[t]},a.prototype.onStart=function(t){function n(t,n){for(var i in n.toProps)i in t.toProps&&delete t.toProps[i]}var i=this.startedAnimations[t.elementId];if(i&&i.length>0)for(var e=0;e<i.length;e++)i[e].isActive&&n(i[e],t);t.fromParams&&this.sharedParamsManager.adjustParams(t.elementId,t.fromParams),t.isActive=!0},a.prototype.onStopComplete=function(t){var n=this.startedAnimations[t.elementId].indexOf(t);this.startedAnimations[t.elementId].splice(n,1),t.isActive=!1,0===this.startedAnimations[t.elementId].length&&this.sharedParamsManager.reset(t.elementId)},s.prototype.isGroupInProgress=function(t){return void 0!==this.activeGroups[t]&&0!==this.activeGroups[t]},s.prototype.subscribe=function(t,n){this.subscribers[t]?this.subscribers[t].push(n):this.subscribers[t]=[n]},s.prototype.onInitStart=function(t){for(var n=0;n<t.length;n++){var i=t[n];this.activeGroups[i]?this.activeGroups[i]+=1:this.activeGroups[i]=1}},s.prototype.onStopComplete=function(t){for(var n=0;n<t.length;n++){var i=t[n];if(this.activeGroups[i]-=1,0===this.activeGroups[i]&&this.subscribers[i]){for(var e=0,r=this.subscribers[i].length;e<r;e++){var o=this.subscribers[i].splice(e,1,void 0)[0];o(i)}this.subscribers[i]=this.subscribers[i].filter(function(t){return void 0!==t})}}},u.prototype.adjustElementParamIfNeeded=function(t){function n(n){i=i||e.sharedParamsManager.getParams(t.elementId),i[n]=t.fromParams[n],t.onUpdate(t.element,i)}var i,e=this,r=t.elementId;this.state[r]||(this.state[r]={});for(var o in t.fromParams)this.state[r][o]?t.activationDelay<this.state[r][o]&&(this.state[r][o]=t.activationDelay,n(o)):(this.state[r][o]=t.activationDelay,n(o))};var m=new n,p=new o,l=new s,d=new r(m),v=new a(d),w=new u(d),g=new e(p,l,d,v);h();var I={createAnimation:c,startAnimationsGroup:g.startAnimationsGroup.bind(g),stopAnimationsGroup:g.stopAnimationsGroup.bind(g),setInitialParamsForElement:d.setInitialParamsForElement.bind(d),Easing:f.Easing};return I}();
+
+    (function(Adf) {
+        var PROP_PREFIXES = ['ms', 'Ms', 'webkit', 'Webkit', 'moz', 'Moz', 'o', 'O'];
+
+        var testDivElem = null;
+        var stylePropMap = {};
+
+        function findPrefixedPropName(object, propName, prefixes, ownProp) {
+            if ((!ownProp && propName in object) || (ownProp && object.hasOwnProperty(propName))) {
+                return propName;
+            }
+
+            propName = propName.charAt(0).toUpperCase() + propName.slice(1);
+
+            for (var i = 0, prefixedPropName; i < prefixes.length; i++) {
+                prefixedPropName = prefixes[i] + propName;
+
+                if ((!ownProp && prefixedPropName in object) || (ownProp && object.hasOwnProperty(prefixedPropName))) {
+                    return prefixedPropName;
+                }
+            }
+
+            return null;
+        }
+
+        function prefixStylePropName(propName) {
+            if (stylePropMap.hasOwnProperty(propName)) {
+                return stylePropMap[propName];
+            }
+
+            if (!testDivElem) {
+                testDivElem = document.createElement('div');
+            }
+
+            return stylePropMap[propName] = findPrefixedPropName(testDivElem.style, propName, PROP_PREFIXES, false);
+        }
+
+        Adf.cssHelpers = Adf.cssHelpers || {};
+        Adf.cssHelpers.prefixStylePropName = prefixStylePropName;
+
+    })(Adf = window.Adf || {});
+
+    var AdfAnimTransformProp = Adf.cssHelpers.prefixStylePropName('transform');
+
+    (function(Adf) {
+        var scaleRegex = /scale\(\d+\.*\d*.*\)/;
+        var translateRegex = /translate3d\((-?\d+\.?\d*px),(\s*-?\d+\.?\d*px), (\s*-?\d+\.?\d*px)\)/;
+        var rotateRegex = /rotate\(-?\d+\.?\d*deg\)/;
+
+        function addBaseTransform(target, initialParamState) {
+
+            var defaultTransform = 'translate(' + initialParamState.pivotX + ', ' + initialParamState.pivotY + ') translate(' + initialParamState.translateX + ', ' + initialParamState.translateY + ') rotate(' + initialParamState.rotate + 'deg)';
+
+            if (!defaultTransform.match(translateRegex)) defaultTransform += 'translate3d(' + initialParamState.x + 'px, ' + initialParamState.y +'px, 0px)';
+            if (!defaultTransform.match(scaleRegex)) defaultTransform += 'scale(1)';
+
+            target.style[AdfAnimTransformProp] = defaultTransform;
+        }
+
+        Adf.cssHelpers = Adf.cssHelpers || {};
+        Adf.cssHelpers.scaleRegex = scaleRegex;
+        Adf.cssHelpers.translateRegex = translateRegex;
+        Adf.cssHelpers.rotateRegex = rotateRegex;
+        Adf.cssHelpers.addBaseTransform = addBaseTransform;
+    })(Adf = window.Adf || {});
+
+
+    function DocVisibilityHandler() {
+        var callbacks = [];
+        var html = document.head.parentNode;
+        html.style.visibility = 'hidden';
+        document.addEventListener('DOMContentLoaded', function() {
+            html.style.visibility = 'visible';
+            for (var i = 0; i < callbacks.length; i ++) {
+                callbacks[i]();
+            }
+        });
+
+        function onDocVisible(cb) {
+            callbacks.push(cb);
+        }
+        return {
+            onDocVisible: onDocVisible
+        }
+    }
+
+    var AdfDocVisibilityHandler = DocVisibilityHandler();
+
+</script>
+<!--#/#--><!--#animations-fade.head:animations-fade/globalhead.1-->
+
+<script>
+    function AdfAnimateOpacity(target, allParams) {
+        target.style.opacity = allParams.opacity.toFixed(2);
+        target.style.opacity == 0 ? target.style.visibility = 'hidden' : target.style.visibility = 'visible';
+    }
+</script>
+
+<!--#/#--><!--#animations-zoom.head:animations-zoom/globalhead-->
+
+<script>
+    function AdfAnimateScale(target, allParams) {
+        var currentTransform = target.style[AdfAnimTransformProp];
+        target.style[AdfAnimTransformProp] = currentTransform.replace(Adf.cssHelpers.scaleRegex, 'scale(' + allParams.scale + ')');
+    }
+</script>
+
+<!--#/#--><!--#animations-move.head:animations-move/globalhead-->
+
+<script>
+    function AdfAnimateTranslateXAndY(target, allParams) {
+        var currentTransform = target.style[AdfAnimTransformProp];
+        target.style[AdfAnimTransformProp] = currentTransform.replace(Adf.cssHelpers.translateRegex, 'translate3d(' + allParams.x.toFixed(2) + 'px,' + allParams.y.toFixed(2) + 'px, 0px)');
+    }
+
+    function getCurrentElementCoords(componentId, containerId) {
+        var STAGE_ID = 0;
+
+        function getComponentDOMElementById(componentId) {
+            if (componentId == STAGE_ID) {
+                return document.getElementsByTagName('body')[0];
+            } else {
+                return document.getElementById(componentId);
+            }
+        }
+
+        var component = getComponentDOMElementById(componentId);
+        var container = getComponentDOMElementById(containerId);
+        var compBRects = component.getBoundingClientRect();
+        var contBRects = container.getBoundingClientRect();
+        return {
+            x: compBRects.left - contBRects.left,
+            y: compBRects.top - contBRects.top
+        };
+    }
+
+
+    function calcDestinationProps(customX, customY, loop, componentId, containerId) {
+        var currentCoords = getCurrentElementCoords(componentId, containerId);
+        var coords = {x: customX - currentCoords.x, y: customY - currentCoords.y};
+
+        if (loop > 1) {
+            coords.x = parseFloat(coords.x);
+            coords.y = parseFloat(coords.y);
+        }
+        return coords;
+    }
+</script>
+
+<!--#/#--><!--#video.head:video/globalhead.2-->
+<script>
+    function setEventsAndListeners(player, videoContainer) {
+
+        player.video.on('state', function(state){
+            switch(state) {
+                case 'playing':
+                    videoContainer.dispatchEvent(makeEvent('play'));
+                    break;
+                case 'paused':
+                    videoContainer.dispatchEvent(makeEvent('pause'));
+                    break;
+                case 'finished':
+                    videoContainer.dispatchEvent(makeEvent('ended'));
+                    break;
+            }
+        });
+
+        function playVideo() {
+            if (player.video.state !== 'playing') player.video.play();
+        }
+
+        function pauseVideo() {
+            if (player.video.state === 'playing') player.video.pause();
+        }
+
+        function stopVideo() {
+            if (player.video.state === 'playing') player.video.stop();
+        }
+
+        videoContainer.addEventListener('playVideo', playVideo);
+
+        videoContainer.addEventListener('pauseVideo', pauseVideo);
+
+        videoContainer.addEventListener('stopVideo', stopVideo);
+
+        videoContainer.addEventListener('replayVideo', function(){
+            player.video.seek(0);
+            playVideo();
+        });
+
+        videoContainer.addEventListener('muteVideo', function(){
+            player.video.mute(true);
+        });
+
+        videoContainer.addEventListener('unmuteVideo', function(){
+            player.video.mute(false);
+        });
+
+        function makeEvent(name) {
+            var event = document.createEvent('Event');
+            event.initEvent(name, true, true);
+            return event;
+        }
+    }
+</script>
+<!--#/#--><!--#animations-rotate.head:animations-rotate/globalhead-->
+
+<script>
+    function AdfAnimateRotate(target, allParams) {
+        var currentTransform = target.style[AdfAnimTransformProp];
+        target.style[AdfAnimTransformProp] = currentTransform.replace(Adf.cssHelpers.rotateRegex, 'rotate(' + allParams.rotate.toFixed(2) + 'deg)');
+    }
+</script>
+
+<!--#/#-->
+<!--#/#--><!--#css:common/css-->
+<style>
+/*#visibility.css:visibility/globalcss*/
+.visibility-hidden, .visibility-hidden * {
+    visibility: hidden !important;
+}
+/*#/#*//*#video.css:video/globalcss.2*/
+.adform-video-container {
+    background: #000;
+    position: static;
+}
+
+.adform-video-container video,
+.adform-video-container .adform-video-poster {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #000 no-repeat 50% 50%;
+}
+
+.no-other .adform-video-seek-bar,
+.no-other .adform-video-full-screen,
+.no-other .adform-video-rewind,
+.no-other .adform-video-stop {
+    display: none;
+}
+.no-other .adform-video-sound {
+    right: 0;
+}
+.no-other .adform-video-play-pause {
+    right: 30px;
+    left: auto;
+}
+.no-play .adform-video-play-pause {
+    display: none;
+}
+.no-sound .adform-video-sound {
+    display: none;
+}
+/*#/#*//*#i2.image.css:image/base/css*/
+#i2 { opacity: 1; }
+/*#/#*//*#i2.i3.positioning.css:positioning/base/css.2*/
+#i2 { position: absolute; top: 0%; left: 0%; overflow: hidden; width: 970px; height: 250px;
+        -ms-transform: translate(0, 0) translate(0px, 0px) rotate(0deg);
+        -webkit-transform: translate(0, 0) translate(0px, 0px) rotate(0deg);
+        -moz-transform: translate(0, 0) translate(0px, 0px) rotate(0deg);
+        transform: translate(0, 0) translate(0px, 0px) rotate(0deg);
+}
+/*#/#*//*#i5.image.css:image/base/css*/
+#i5 { opacity: 1; }
+/*#/#*//*#i5.i6.positioning.css:positioning/base/css.2*/
+#i5 { position: absolute; top: 0%; left: 0%; overflow: hidden; width: 156px; height: 211px;
+        -ms-transform: translate(0, 0) translate(-13px, 0px) rotate(0deg);
+        -webkit-transform: translate(0, 0) translate(-13px, 0px) rotate(0deg);
+        -moz-transform: translate(0, 0) translate(-13px, 0px) rotate(0deg);
+        transform: translate(0, 0) translate(-13px, 0px) rotate(0deg);
+}
+/*#/#*//*#i7.image.css:image/base/css*/
+#i7 { opacity: 1; }
+/*#/#*//*#i7.i8.positioning.css:positioning/base/css.2*/
+#i7 { position: absolute; top: 0%; left: 0%; overflow: hidden; width: 106px; height: 133px;
+        -ms-transform: translate(0, 0) translate(191px, 7px) rotate(0deg);
+        -webkit-transform: translate(0, 0) translate(191px, 7px) rotate(0deg);
+        -moz-transform: translate(0, 0) translate(191px, 7px) rotate(0deg);
+        transform: translate(0, 0) translate(191px, 7px) rotate(0deg);
+}
+/*#/#*//*#i53.image.css:image/base/css*/
+#i53 { opacity: 1; }
+/*#/#*//*#i53.i54.positioning.css:positioning/base/css.2*/
+#i53 { position: absolute; top: 0%; left: 0%; overflow: hidden; width: 970px; height: 250px;
+        -ms-transform: translate(0, 0) translate(0px, -20px) rotate(0deg);
+        -webkit-transform: translate(0, 0) translate(0px, -20px) rotate(0deg);
+        -moz-transform: translate(0, 0) translate(0px, -20px) rotate(0deg);
+        transform: translate(0, 0) translate(0px, -20px) rotate(0deg);
+}
+/*#/#*//*#i55.image.css:image/base/css*/
+#i55 { opacity: 1; }
+/*#/#*//*#i55.i56.positioning.css:positioning/base/css.2*/
+#i55 { position: absolute; top: 0%; left: 0%; overflow: hidden; width: 970px; height: 250px;
+        -ms-transform: translate(0, 0) translate(0px, -20px) rotate(0deg);
+        -webkit-transform: translate(0, 0) translate(0px, -20px) rotate(0deg);
+        -moz-transform: translate(0, 0) translate(0px, -20px) rotate(0deg);
+        transform: translate(0, 0) translate(0px, -20px) rotate(0deg);
+}
+/*#/#*//*#i17.image.css:image/base/css*/
+#i17 { opacity: 1; }
+/*#/#*//*#i17.i18.positioning.css:positioning/base/css.2*/
+#i17 { position: absolute; top: 0%; left: 0%; overflow: hidden; width: 970px; height: 250px;
+        -ms-transform: translate(0, 0) translate(0px, 1px) rotate(0deg);
+        -webkit-transform: translate(0, 0) translate(0px, 1px) rotate(0deg);
+        -moz-transform: translate(0, 0) translate(0px, 1px) rotate(0deg);
+        transform: translate(0, 0) translate(0px, 1px) rotate(0deg);
+}
+/*#/#*//*#i13.image.css:image/base/css*/
+#i13 { opacity: 1; }
+/*#/#*//*#i13.i14.positioning.css:positioning/base/css.2*/
+#i13 { position: absolute; top: 0%; left: 0%; overflow: hidden; width: 88px; height: 83px;
+        -ms-transform: translate(0, 0) translate(164px, 76px) rotate(0deg);
+        -webkit-transform: translate(0, 0) translate(164px, 76px) rotate(0deg);
+        -moz-transform: translate(0, 0) translate(164px, 76px) rotate(0deg);
+        transform: translate(0, 0) translate(164px, 76px) rotate(0deg);
+}
+/*#/#*//*#i29.image.css:image/base/css*/
+#i29 { opacity: 1; }
+/*#/#*//*#i29.i30.positioning.css:positioning/base/css.2*/
+#i29 { position: absolute; top: 0%; left: 0%; overflow: hidden; width: 970px; height: 250px;
+        -ms-transform: translate(0, 0) translate(0px, 0px) rotate(0deg);
+        -webkit-transform: translate(0, 0) translate(0px, 0px) rotate(0deg);
+        -moz-transform: translate(0, 0) translate(0px, 0px) rotate(0deg);
+        transform: translate(0, 0) translate(0px, 0px) rotate(0deg);
+}
+/*#/#*//*#i24.image.css:image/base/css*/
+#i24 { opacity: 1; }
+/*#/#*//*#i24.i25.positioning.css:positioning/base/css.2*/
+#i24 { position: absolute; top: 0%; left: 0%; overflow: hidden; width: 64px; height: 61px;
+        -ms-transform: translate(0, 0) translate(176px, 95px) rotate(0deg);
+        -webkit-transform: translate(0, 0) translate(176px, 95px) rotate(0deg);
+        -moz-transform: translate(0, 0) translate(176px, 95px) rotate(0deg);
+        transform: translate(0, 0) translate(176px, 95px) rotate(0deg);
+}
+/*#/#*//*#i33.image.css:image/base/css*/
+#i33 { opacity: 1; }
+/*#/#*//*#i33.i34.positioning.css:positioning/base/css.2*/
+#i33 { position: absolute; top: 0%; left: 0%; overflow: hidden; width: 970px; height: 250px;
+        -ms-transform: translate(0, 0) translate(0px, 0px) rotate(0deg);
+        -webkit-transform: translate(0, 0) translate(0px, 0px) rotate(0deg);
+        -moz-transform: translate(0, 0) translate(0px, 0px) rotate(0deg);
+        transform: translate(0, 0) translate(0px, 0px) rotate(0deg);
+}
+/*#/#*//*#i35.image.css:image/base/css*/
+#i35 { opacity: 1; }
+/*#/#*//*#i35.i36.positioning.css:positioning/base/css.2*/
+#i35 { position: absolute; top: 0%; left: 0%; overflow: hidden; width: 63px; height: 58px;
+        -ms-transform: translate(0, 0) translate(176px, 89px) rotate(0deg);
+        -webkit-transform: translate(0, 0) translate(176px, 89px) rotate(0deg);
+        -moz-transform: translate(0, 0) translate(176px, 89px) rotate(0deg);
+        transform: translate(0, 0) translate(176px, 89px) rotate(0deg);
+}
+/*#/#*//*#i40.image.css:image/base/css*/
+#i40 { opacity: 1; }
+/*#/#*//*#i40.i41.positioning.css:positioning/base/css.2*/
+#i40 { position: absolute; top: 0%; left: 0%; overflow: hidden; width: 970px; height: 250px;
+        -ms-transform: translate(0, 0) translate(0px, 0px) rotate(0deg);
+        -webkit-transform: translate(0, 0) translate(0px, 0px) rotate(0deg);
+        -moz-transform: translate(0, 0) translate(0px, 0px) rotate(0deg);
+        transform: translate(0, 0) translate(0px, 0px) rotate(0deg);
+}
+/*#/#*//*#i42.image.css:image/base/css*/
+#i42 { opacity: 1; }
+/*#/#*//*#i42.i43.positioning.css:positioning/base/css.2*/
+#i42 { position: absolute; top: 0%; left: 0%; overflow: hidden; width: 33px; height: 31px;
+        -ms-transform: translate(0, 0) translate(191px, 102px) rotate(0deg);
+        -webkit-transform: translate(0, 0) translate(191px, 102px) rotate(0deg);
+        -moz-transform: translate(0, 0) translate(191px, 102px) rotate(0deg);
+        transform: translate(0, 0) translate(191px, 102px) rotate(0deg);
+}
+/*#/#*//*#i63.image.css:image/base/css*/
+#i63 { opacity: 1; }
+/*#/#*//*#i63.i64.positioning.css:positioning/base/css.2*/
+#i63 { position: absolute; top: 0%; left: 0%; overflow: hidden; width: 970px; height: 250px;
+        -ms-transform: translate(0, 0) translate(40px, 0px) rotate(0deg);
+        -webkit-transform: translate(0, 0) translate(40px, 0px) rotate(0deg);
+        -moz-transform: translate(0, 0) translate(40px, 0px) rotate(0deg);
+        transform: translate(0, 0) translate(40px, 0px) rotate(0deg);
+}
+/*#/#*//*#i68.image.css:image/base/css*/
+#i68 { opacity: 1; }
+/*#/#*//*#i68.i69.positioning.css:positioning/base/css.2*/
+#i68 { position: absolute; top: 0%; left: 0%; overflow: hidden; width: 102px; height: 102px;
+        -ms-transform: translate(0, 0) translate(750px, 86px) rotate(0deg);
+        -webkit-transform: translate(0, 0) translate(750px, 86px) rotate(0deg);
+        -moz-transform: translate(0, 0) translate(750px, 86px) rotate(0deg);
+        transform: translate(0, 0) translate(750px, 86px) rotate(0deg);
+}
+/*#/#*//*#i80.image.css:image/base/css*/
+#i80 { opacity: 1; }
+/*#/#*//*#i80.i81.positioning.css:positioning/base/css.2*/
+#i80 { position: absolute; top: 0%; left: 0%; overflow: hidden; width: 98px; height: 32px;
+        -ms-transform: translate(0, 0) translate(943px, 121px) rotate(0deg);
+        -webkit-transform: translate(0, 0) translate(943px, 121px) rotate(0deg);
+        -moz-transform: translate(0, 0) translate(943px, 121px) rotate(0deg);
+        transform: translate(0, 0) translate(943px, 121px) rotate(0deg);
+}
+/*#/#*//*#i90.image.css:image/base/css*/
+#i90 { opacity: 1; }
+/*#/#*//*#i90.i91.positioning.css:positioning/base/css.2*/
+#i90 { position: absolute; top: 0%; left: 0%; overflow: hidden; width: 970px; height: 250px;
+        -ms-transform: translate(0, 0) translate(0px, 0px) rotate(0deg);
+        -webkit-transform: translate(0, 0) translate(0px, 0px) rotate(0deg);
+        -moz-transform: translate(0, 0) translate(0px, 0px) rotate(0deg);
+        transform: translate(0, 0) translate(0px, 0px) rotate(0deg);
+}
+/*#/#*//*#i86.image.css:image/base/css*/
+#i86 { opacity: 1; }
+/*#/#*//*#i86.i87.positioning.css:positioning/base/css.2*/
+#i86 { position: absolute; top: 0%; left: 0%; overflow: hidden; width: 970px; height: 250px;
+        -ms-transform: translate(0, 0) translate(0px, 60px) rotate(0deg);
+        -webkit-transform: translate(0, 0) translate(0px, 60px) rotate(0deg);
+        -moz-transform: translate(0, 0) translate(0px, 60px) rotate(0deg);
+        transform: translate(0, 0) translate(0px, 60px) rotate(0deg);
+}
+/*#/#*//*#i51.i52.positioning.css:positioning/base/css.2*/
+#i51 { position: absolute; top: 0%; left: 0%; overflow: hidden; width: 1310px; height: 736px; border: 4px solid #fff;
+        -ms-transform: translate(0, 0) translate(-170px, -244px) rotate(0deg);
+        -webkit-transform: translate(0, 0) translate(-170px, -244px) rotate(0deg);
+        -moz-transform: translate(0, 0) translate(-170px, -244px) rotate(0deg);
+        transform: translate(0, 0) translate(-170px, -244px) rotate(0deg);
+}
+/*#/#*/
+</style>
+<!--#/#--></head>
+<body>
+<!--#html:common/html--><!--#i1.core.html:core/html--><!--#/#--><!--#i2.image.html:image/html-->
+<img id="i2" src="assets/arkaplan.jpg"/>
+<!--#/#--><!--#i5.image.html:image/html-->
+<img id="i5" src="assets/logo.png"/>
+<!--#/#--><!--#i7.image.html:image/html-->
+<img id="i7" src="assets/semih.png"/>
+<!--#/#--><!--#i53.image.html:image/html-->
+<img id="i53" src="assets/semih-text.png"/>
+<!--#/#--><!--#i55.image.html:image/html-->
+<img id="i55" src="assets/dunya-bilardo.png"/>
+<!--#/#--><!--#i17.image.html:image/html-->
+<img id="i17" src="assets/e-fatura-zemin.png"/>
+<!--#/#--><!--#i13.image.html:image/html-->
+<img id="i13" src="assets/e-fatura.png"/>
+<!--#/#--><!--#i29.image.html:image/html-->
+<img id="i29" src="assets/e-defter-zemin.png"/>
+<!--#/#--><!--#i24.image.html:image/html-->
+<img id="i24" src="assets/e-defter.png"/>
+<!--#/#--><!--#i33.image.html:image/html-->
+<img id="i33" src="assets/e-irsaliye-zemin.png"/>
+<!--#/#--><!--#i35.image.html:image/html-->
+<img id="i35" src="assets/e-irsaliye.png"/>
+<!--#/#--><!--#i40.image.html:image/html-->
+<img id="i40" src="assets/e-arsiv-arka.png"/>
+<!--#/#--><!--#i42.image.html:image/html-->
+<img id="i42" src="assets/e-arsiv.png"/>
+<!--#/#--><!--#i63.image.html:image/html-->
+<img id="i63" src="assets/text.png"/>
+<!--#/#--><!--#i68.image.html:image/html-->
+<img id="i68" src="assets/yuvarlak.png"/>
+<!--#/#--><!--#i80.image.html:image/html-->
+<img id="i80" src="assets/baloncuk.png"/>
+<!--#/#--><!--#i90.image.html:image/html-->
+<img id="i90" src="assets/border.png"/>
+<!--#/#--><!--#i86.image.html:image/html-->
+<img id="i86" src="assets/cta.png"/>
+<!--#/#--><!--#i51.video.html:video/html.2-->
+<div id="i51"></div>
+<!--#/#--><!--#/#--><!--#js:common/js-->
+<script>
+/*#i2.image.js:image/base/js*/
+
+/*#/#*//*#i2.i3.positioning.js:positioning/base/js.2*/
+bmShow('i2');
+/*#/#*//*#i5.image.js:image/base/js*/
+
+/*#/#*//*#i5.i6.positioning.js:positioning/base/js.2*/
+bmShow('i5');
+/*#/#*//*#i7.image.js:image/base/js*/
+
+/*#/#*//*#i7.i8.positioning.js:positioning/base/js.2*/
+bmShow('i7');
+/*#/#*//*#i7.i9.animations.js:animations/js.1*/
+(function(){
+    var ADFAnimTarget_i9 = document.getElementById('i7');
+    var AnimParentID = 'i7';
+    var initialParamState = JSON.parse('{"opacity":1,"rotate":0,"translateX":"191px","translateY":"7px","pivotX":"0","pivotY":"0","scale":1,"x":0,"y":0}');
+    Adf.cssHelpers.addBaseTransform(ADFAnimTarget_i9, initialParamState);
+    Adf.animate.setInitialParamsForElement(ADFAnimTarget_i9, initialParamState);
+
+    /*#i9.i10.animations-fade.js:animations-fade/js.1*/
+Adf.animate.createAnimation({
+    element: ADFAnimTarget_i9, settings: {
+    toProps: {opacity: 100 / 100},
+    fromParams: {opacity: 0 / 100},
+    duration: 0.1 * 1000,
+    repeat: 1,
+    easing: Adf.animate.Easing.Linear.None
+    }, onUpdate: AdfAnimateOpacity, groups: [AnimParentID], activationDelay: 3.3 * 1000
+});
+
+/*#/#*//*#i9.i11.animations-fade.js:animations-fade/js.1*/
+Adf.animate.createAnimation({
+    element: ADFAnimTarget_i9, settings: {
+    toProps: {opacity: 0 / 100},
+    fromParams: {opacity: 100 / 100},
+    duration: 0.1 * 1000,
+    repeat: 1,
+    easing: Adf.animate.Easing.Linear.None
+    }, onUpdate: AdfAnimateOpacity, groups: [AnimParentID], activationDelay: 3.4 * 1000
+});
+
+/*#/#*//*#i9.i12.animations-fade.js:animations-fade/js.1*/
+Adf.animate.createAnimation({
+    element: ADFAnimTarget_i9, settings: {
+    toProps: {opacity: 100 / 100},
+    fromParams: {opacity: 0 / 100},
+    duration: 0.5 * 1000,
+    repeat: 1,
+    easing: Adf.animate.Easing.Linear.None
+    }, onUpdate: AdfAnimateOpacity, groups: [AnimParentID], activationDelay: 3.5 * 1000
+});
+
+/*#/#*/
+
+    if (true) AdfDocVisibilityHandler.onDocVisible(function(){Adf.animate.startAnimationsGroup(AnimParentID, 1);});
+})();
+
+/*#/#*//*#i53.image.js:image/base/js*/
+
+/*#/#*//*#i53.i54.positioning.js:positioning/base/js.2*/
+bmShow('i53');
+/*#/#*//*#i53.i57.animations.js:animations/js.1*/
+(function(){
+    var ADFAnimTarget_i57 = document.getElementById('i53');
+    var AnimParentID = 'i53';
+    var initialParamState = JSON.parse('{"opacity":1,"rotate":0,"translateX":"0px","translateY":"-20px","pivotX":"0","pivotY":"0","scale":1,"x":0,"y":0}');
+    Adf.cssHelpers.addBaseTransform(ADFAnimTarget_i57, initialParamState);
+    Adf.animate.setInitialParamsForElement(ADFAnimTarget_i57, initialParamState);
+
+    /*#i57.i58.animations-fade.js:animations-fade/js.1*/
+Adf.animate.createAnimation({
+    element: ADFAnimTarget_i57, settings: {
+    toProps: {opacity: 100 / 100},
+    fromParams: {opacity: 0 / 100},
+    duration: 0.5 * 1000,
+    repeat: 1,
+    easing: Adf.animate.Easing.Linear.None
+    }, onUpdate: AdfAnimateOpacity, groups: [AnimParentID], activationDelay: 3.5 * 1000
+});
+
+/*#/#*//*#i57.i59.animations-move.js:animations-move/js*/
+Adf.animate.createAnimation({
+    element: ADFAnimTarget_i57, settings: {
+    toProps: calcDestinationProps(parseFloat(0), parseFloat(0), 1, AnimParentID, '0'),
+    duration: 0.5 * 1000,
+    repeat: 1,
+    easing: Adf.animate.Easing.Linear.None
+    }, onUpdate: AdfAnimateTranslateXAndY, groups: [AnimParentID], activationDelay: 3.5 * 1000
+});
+
+/*#/#*/
+
+    if (true) AdfDocVisibilityHandler.onDocVisible(function(){Adf.animate.startAnimationsGroup(AnimParentID, 1);});
+})();
+
+/*#/#*//*#i55.image.js:image/base/js*/
+
+/*#/#*//*#i55.i56.positioning.js:positioning/base/js.2*/
+bmShow('i55');
+/*#/#*//*#i55.i60.animations.js:animations/js.1*/
+(function(){
+    var ADFAnimTarget_i60 = document.getElementById('i55');
+    var AnimParentID = 'i55';
+    var initialParamState = JSON.parse('{"opacity":1,"rotate":0,"translateX":"0px","translateY":"-20px","pivotX":"0","pivotY":"0","scale":1,"x":0,"y":0}');
+    Adf.cssHelpers.addBaseTransform(ADFAnimTarget_i60, initialParamState);
+    Adf.animate.setInitialParamsForElement(ADFAnimTarget_i60, initialParamState);
+
+    /*#i60.i61.animations-fade.js:animations-fade/js.1*/
+Adf.animate.createAnimation({
+    element: ADFAnimTarget_i60, settings: {
+    toProps: {opacity: 100 / 100},
+    fromParams: {opacity: 0 / 100},
+    duration: 0.5 * 1000,
+    repeat: 1,
+    easing: Adf.animate.Easing.Linear.None
+    }, onUpdate: AdfAnimateOpacity, groups: [AnimParentID], activationDelay: 3.8 * 1000
+});
+
+/*#/#*//*#i60.i62.animations-move.js:animations-move/js*/
+Adf.animate.createAnimation({
+    element: ADFAnimTarget_i60, settings: {
+    toProps: calcDestinationProps(parseFloat(0), parseFloat(0), 1, AnimParentID, '0'),
+    duration: 0.5 * 1000,
+    repeat: 1,
+    easing: Adf.animate.Easing.Linear.None
+    }, onUpdate: AdfAnimateTranslateXAndY, groups: [AnimParentID], activationDelay: 3.8 * 1000
+});
+
+/*#/#*/
+
+    if (true) AdfDocVisibilityHandler.onDocVisible(function(){Adf.animate.startAnimationsGroup(AnimParentID, 1);});
+})();
+
+/*#/#*//*#i17.image.js:image/base/js*/
+
+/*#/#*//*#i17.i18.positioning.js:positioning/base/js.2*/
+bmShow('i17');
+/*#/#*//*#i17.i22.animations.js:animations/js.1*/
+(function(){
+    var ADFAnimTarget_i22 = document.getElementById('i17');
+    var AnimParentID = 'i17';
+    var initialParamState = JSON.parse('{"opacity":1,"rotate":0,"translateX":"0px","translateY":"1px","pivotX":"0","pivotY":"0","scale":1,"x":0,"y":0}');
+    Adf.cssHelpers.addBaseTransform(ADFAnimTarget_i22, initialParamState);
+    Adf.animate.setInitialParamsForElement(ADFAnimTarget_i22, initialParamState);
+
+    /*#i22.i23.animations-fade.js:animations-fade/js.1*/
+Adf.animate.createAnimation({
+    element: ADFAnimTarget_i22, settings: {
+    toProps: {opacity: 100 / 100},
+    fromParams: {opacity: 0 / 100},
+    duration: 0 * 1000,
+    repeat: 1,
+    easing: Adf.animate.Easing.Linear.None
+    }, onUpdate: AdfAnimateOpacity, groups: [AnimParentID], activationDelay: 4.3 * 1000
+});
+
+/*#/#*/
+
+    if (true) AdfDocVisibilityHandler.onDocVisible(function(){Adf.animate.startAnimationsGroup(AnimParentID, 1);});
+})();
+
+/*#/#*//*#i13.image.js:image/base/js*/
+
+/*#/#*//*#i13.i14.positioning.js:positioning/base/js.2*/
+bmShow('i13');
+/*#/#*//*#i13.i19.animations.js:animations/js.1*/
+(function(){
+    var ADFAnimTarget_i19 = document.getElementById('i13');
+    var AnimParentID = 'i13';
+    var initialParamState = JSON.parse('{"opacity":1,"rotate":0,"translateX":"164px","translateY":"76px","pivotX":"0","pivotY":"0","scale":1,"x":0,"y":0}');
+    Adf.cssHelpers.addBaseTransform(ADFAnimTarget_i19, initialParamState);
+    Adf.animate.setInitialParamsForElement(ADFAnimTarget_i19, initialParamState);
+
+    /*#i19.i20.animations-zoom.js:animations-zoom/js*/
+Adf.animate.createAnimation({
+    element: ADFAnimTarget_i19, settings: {
+    toProps: {scale: 100 / 100},
+    fromParams: {scale: 0 / 100},
+    duration: 0.3 * 1000,
+    repeat: 1,
+    easing: Adf.animate.Easing.Linear.None
+    }, onUpdate: AdfAnimateScale, groups: [AnimParentID], activationDelay: 4 * 1000
+});
+
+/*#/#*//*#i19.i21.animations-move.js:animations-move/js*/
+Adf.animate.createAnimation({
+    element: ADFAnimTarget_i19, settings: {
+    toProps: calcDestinationProps(parseFloat(209), parseFloat(195), 1, AnimParentID, '0'),
+    duration: 0.3 * 1000,
+    repeat: 1,
+    easing: Adf.animate.Easing.Linear.None
+    }, onUpdate: AdfAnimateTranslateXAndY, groups: [AnimParentID], activationDelay: 4 * 1000
+});
+
+/*#/#*/
+
+    if (true) AdfDocVisibilityHandler.onDocVisible(function(){Adf.animate.startAnimationsGroup(AnimParentID, 1);});
+})();
+
+/*#/#*//*#i29.image.js:image/base/js*/
+
+/*#/#*//*#i29.i30.positioning.js:positioning/base/js.2*/
+bmShow('i29');
+/*#/#*//*#i29.i31.animations.js:animations/js.1*/
+(function(){
+    var ADFAnimTarget_i31 = document.getElementById('i29');
+    var AnimParentID = 'i29';
+    var initialParamState = JSON.parse('{"opacity":1,"rotate":0,"translateX":"0px","translateY":"0px","pivotX":"0","pivotY":"0","scale":1,"x":0,"y":0}');
+    Adf.cssHelpers.addBaseTransform(ADFAnimTarget_i31, initialParamState);
+    Adf.animate.setInitialParamsForElement(ADFAnimTarget_i31, initialParamState);
+
+    /*#i31.i32.animations-fade.js:animations-fade/js.1*/
+Adf.animate.createAnimation({
+    element: ADFAnimTarget_i31, settings: {
+    toProps: {opacity: 100 / 100},
+    fromParams: {opacity: 0 / 100},
+    duration: 0 * 1000,
+    repeat: 1,
+    easing: Adf.animate.Easing.Linear.None
+    }, onUpdate: AdfAnimateOpacity, groups: [AnimParentID], activationDelay: 4.9 * 1000
+});
+
+/*#/#*/
+
+    if (true) AdfDocVisibilityHandler.onDocVisible(function(){Adf.animate.startAnimationsGroup(AnimParentID, 1);});
+})();
+
+/*#/#*//*#i24.image.js:image/base/js*/
+
+/*#/#*//*#i24.i25.positioning.js:positioning/base/js.2*/
+bmShow('i24');
+/*#/#*//*#i24.i26.animations.js:animations/js.1*/
+(function(){
+    var ADFAnimTarget_i26 = document.getElementById('i24');
+    var AnimParentID = 'i24';
+    var initialParamState = JSON.parse('{"opacity":1,"rotate":0,"translateX":"176px","translateY":"95px","pivotX":"0","pivotY":"0","scale":1,"x":0,"y":0}');
+    Adf.cssHelpers.addBaseTransform(ADFAnimTarget_i26, initialParamState);
+    Adf.animate.setInitialParamsForElement(ADFAnimTarget_i26, initialParamState);
+
+    /*#i26.i27.animations-zoom.js:animations-zoom/js*/
+Adf.animate.createAnimation({
+    element: ADFAnimTarget_i26, settings: {
+    toProps: {scale: 100 / 100},
+    fromParams: {scale: 0 / 100},
+    duration: 0.3 * 1000,
+    repeat: 1,
+    easing: Adf.animate.Easing.Linear.None
+    }, onUpdate: AdfAnimateScale, groups: [AnimParentID], activationDelay: 4.6 * 1000
+});
+
+/*#/#*//*#i26.i28.animations-move.js:animations-move/js*/
+Adf.animate.createAnimation({
+    element: ADFAnimTarget_i26, settings: {
+    toProps: calcDestinationProps(parseFloat(118), parseFloat(162), 1, AnimParentID, '0'),
+    duration: 0.3 * 1000,
+    repeat: 1,
+    easing: Adf.animate.Easing.Linear.None
+    }, onUpdate: AdfAnimateTranslateXAndY, groups: [AnimParentID], activationDelay: 4.6 * 1000
+});
+
+/*#/#*/
+
+    if (true) AdfDocVisibilityHandler.onDocVisible(function(){Adf.animate.startAnimationsGroup(AnimParentID, 1);});
+})();
+
+/*#/#*//*#i33.image.js:image/base/js*/
+
+/*#/#*//*#i33.i34.positioning.js:positioning/base/js.2*/
+bmShow('i33');
+/*#/#*//*#i33.i44.animations.js:animations/js.1*/
+(function(){
+    var ADFAnimTarget_i44 = document.getElementById('i33');
+    var AnimParentID = 'i33';
+    var initialParamState = JSON.parse('{"opacity":1,"rotate":0,"translateX":"0px","translateY":"0px","pivotX":"0","pivotY":"0","scale":1,"x":0,"y":0}');
+    Adf.cssHelpers.addBaseTransform(ADFAnimTarget_i44, initialParamState);
+    Adf.animate.setInitialParamsForElement(ADFAnimTarget_i44, initialParamState);
+
+    /*#i44.i45.animations-fade.js:animations-fade/js.1*/
+Adf.animate.createAnimation({
+    element: ADFAnimTarget_i44, settings: {
+    toProps: {opacity: 100 / 100},
+    fromParams: {opacity: 0 / 100},
+    duration: 0 * 1000,
+    repeat: 1,
+    easing: Adf.animate.Easing.Linear.None
+    }, onUpdate: AdfAnimateOpacity, groups: [AnimParentID], activationDelay: 5.5 * 1000
+});
+
+/*#/#*/
+
+    if (true) AdfDocVisibilityHandler.onDocVisible(function(){Adf.animate.startAnimationsGroup(AnimParentID, 1);});
+})();
+
+/*#/#*//*#i35.image.js:image/base/js*/
+
+/*#/#*//*#i35.i36.positioning.js:positioning/base/js.2*/
+bmShow('i35');
+/*#/#*//*#i35.i37.animations.js:animations/js.1*/
+(function(){
+    var ADFAnimTarget_i37 = document.getElementById('i35');
+    var AnimParentID = 'i35';
+    var initialParamState = JSON.parse('{"opacity":1,"rotate":0,"translateX":"176px","translateY":"89px","pivotX":"0","pivotY":"0","scale":1,"x":0,"y":0}');
+    Adf.cssHelpers.addBaseTransform(ADFAnimTarget_i37, initialParamState);
+    Adf.animate.setInitialParamsForElement(ADFAnimTarget_i37, initialParamState);
+
+    /*#i37.i38.animations-zoom.js:animations-zoom/js*/
+Adf.animate.createAnimation({
+    element: ADFAnimTarget_i37, settings: {
+    toProps: {scale: 100 / 100},
+    fromParams: {scale: 0 / 100},
+    duration: 0.3 * 1000,
+    repeat: 1,
+    easing: Adf.animate.Easing.Linear.None
+    }, onUpdate: AdfAnimateScale, groups: [AnimParentID], activationDelay: 5.2 * 1000
+});
+
+/*#/#*//*#i37.i39.animations-move.js:animations-move/js*/
+Adf.animate.createAnimation({
+    element: ADFAnimTarget_i37, settings: {
+    toProps: calcDestinationProps(parseFloat(293), parseFloat(157), 1, AnimParentID, '0'),
+    duration: 0.3 * 1000,
+    repeat: 1,
+    easing: Adf.animate.Easing.Linear.None
+    }, onUpdate: AdfAnimateTranslateXAndY, groups: [AnimParentID], activationDelay: 5.2 * 1000
+});
+
+/*#/#*/
+
+    if (true) AdfDocVisibilityHandler.onDocVisible(function(){Adf.animate.startAnimationsGroup(AnimParentID, 1);});
+})();
+
+/*#/#*//*#i40.image.js:image/base/js*/
+
+/*#/#*//*#i40.i41.positioning.js:positioning/base/js.2*/
+bmShow('i40');
+/*#/#*//*#i40.i49.animations.js:animations/js.1*/
+(function(){
+    var ADFAnimTarget_i49 = document.getElementById('i40');
+    var AnimParentID = 'i40';
+    var initialParamState = JSON.parse('{"opacity":1,"rotate":0,"translateX":"0px","translateY":"0px","pivotX":"0","pivotY":"0","scale":1,"x":0,"y":0}');
+    Adf.cssHelpers.addBaseTransform(ADFAnimTarget_i49, initialParamState);
+    Adf.animate.setInitialParamsForElement(ADFAnimTarget_i49, initialParamState);
+
+    /*#i49.i50.animations-fade.js:animations-fade/js.1*/
+Adf.animate.createAnimation({
+    element: ADFAnimTarget_i49, settings: {
+    toProps: {opacity: 100 / 100},
+    fromParams: {opacity: 0 / 100},
+    duration: 0 * 1000,
+    repeat: 1,
+    easing: Adf.animate.Easing.Linear.None
+    }, onUpdate: AdfAnimateOpacity, groups: [AnimParentID], activationDelay: 6.1 * 1000
+});
+
+/*#/#*/
+
+    if (true) AdfDocVisibilityHandler.onDocVisible(function(){Adf.animate.startAnimationsGroup(AnimParentID, 1);});
+})();
+
+/*#/#*//*#i42.image.js:image/base/js*/
+
+/*#/#*//*#i42.i43.positioning.js:positioning/base/js.2*/
+bmShow('i42');
+/*#/#*//*#i42.i46.animations.js:animations/js.1*/
+(function(){
+    var ADFAnimTarget_i46 = document.getElementById('i42');
+    var AnimParentID = 'i42';
+    var initialParamState = JSON.parse('{"opacity":1,"rotate":0,"translateX":"191px","translateY":"102px","pivotX":"0","pivotY":"0","scale":1,"x":0,"y":0}');
+    Adf.cssHelpers.addBaseTransform(ADFAnimTarget_i46, initialParamState);
+    Adf.animate.setInitialParamsForElement(ADFAnimTarget_i46, initialParamState);
+
+    /*#i46.i47.animations-zoom.js:animations-zoom/js*/
+Adf.animate.createAnimation({
+    element: ADFAnimTarget_i46, settings: {
+    toProps: {scale: 100 / 100},
+    fromParams: {scale: 0 / 100},
+    duration: 0.3 * 1000,
+    repeat: 1,
+    easing: Adf.animate.Easing.Linear.None
+    }, onUpdate: AdfAnimateScale, groups: [AnimParentID], activationDelay: 5.8 * 1000
+});
+
+/*#/#*//*#i46.i48.animations-move.js:animations-move/js*/
+Adf.animate.createAnimation({
+    element: ADFAnimTarget_i46, settings: {
+    toProps: calcDestinationProps(parseFloat(153), parseFloat(130), 1, AnimParentID, '0'),
+    duration: 0.3 * 1000,
+    repeat: 1,
+    easing: Adf.animate.Easing.Linear.None
+    }, onUpdate: AdfAnimateTranslateXAndY, groups: [AnimParentID], activationDelay: 5.8 * 1000
+});
+
+/*#/#*/
+
+    if (true) AdfDocVisibilityHandler.onDocVisible(function(){Adf.animate.startAnimationsGroup(AnimParentID, 1);});
+})();
+
+/*#/#*//*#i63.image.js:image/base/js*/
+
+/*#/#*//*#i63.i64.positioning.js:positioning/base/js.2*/
+bmShow('i63');
+/*#/#*//*#i63.i65.animations.js:animations/js.1*/
+(function(){
+    var ADFAnimTarget_i65 = document.getElementById('i63');
+    var AnimParentID = 'i63';
+    var initialParamState = JSON.parse('{"opacity":1,"rotate":0,"translateX":"40px","translateY":"0px","pivotX":"0","pivotY":"0","scale":1,"x":0,"y":0}');
+    Adf.cssHelpers.addBaseTransform(ADFAnimTarget_i65, initialParamState);
+    Adf.animate.setInitialParamsForElement(ADFAnimTarget_i65, initialParamState);
+
+    /*#i65.i66.animations-fade.js:animations-fade/js.1*/
+Adf.animate.createAnimation({
+    element: ADFAnimTarget_i65, settings: {
+    toProps: {opacity: 100 / 100},
+    fromParams: {opacity: 0 / 100},
+    duration: 0.2 * 1000,
+    repeat: 1,
+    easing: Adf.animate.Easing.Linear.None
+    }, onUpdate: AdfAnimateOpacity, groups: [AnimParentID], activationDelay: 6.5 * 1000
+});
+
+/*#/#*//*#i65.i67.animations-move.js:animations-move/js*/
+Adf.animate.createAnimation({
+    element: ADFAnimTarget_i65, settings: {
+    toProps: calcDestinationProps(parseFloat(0), parseFloat(0), 1, AnimParentID, '0'),
+    duration: 0.2 * 1000,
+    repeat: 1,
+    easing: Adf.animate.Easing.Linear.None
+    }, onUpdate: AdfAnimateTranslateXAndY, groups: [AnimParentID], activationDelay: 6.5 * 1000
+});
+
+/*#/#*/
+
+    if (true) AdfDocVisibilityHandler.onDocVisible(function(){Adf.animate.startAnimationsGroup(AnimParentID, 1);});
+})();
+
+/*#/#*//*#i68.image.js:image/base/js*/
+
+/*#/#*//*#i68.i69.positioning.js:positioning/base/js.2*/
+bmShow('i68');
+/*#/#*//*#i68.i70.animations.js:animations/js.1*/
+(function(){
+    var ADFAnimTarget_i70 = document.getElementById('i68');
+    var AnimParentID = 'i68';
+    var initialParamState = JSON.parse('{"opacity":1,"rotate":0,"translateX":"750px","translateY":"86px","pivotX":"0","pivotY":"0","scale":1,"x":0,"y":0}');
+    Adf.cssHelpers.addBaseTransform(ADFAnimTarget_i70, initialParamState);
+    Adf.animate.setInitialParamsForElement(ADFAnimTarget_i70, initialParamState);
+
+    /*#i70.i71.animations-zoom.js:animations-zoom/js*/
+Adf.animate.createAnimation({
+    element: ADFAnimTarget_i70, settings: {
+    toProps: {scale: 100 / 100},
+    fromParams: {scale: 300 / 100},
+    duration: 0.3 * 1000,
+    repeat: 1,
+    easing: Adf.animate.Easing.Linear.None
+    }, onUpdate: AdfAnimateScale, groups: [AnimParentID], activationDelay: 7 * 1000
+});
+
+/*#/#*//*#i70.i72.animations-fade.js:animations-fade/js.1*/
+Adf.animate.createAnimation({
+    element: ADFAnimTarget_i70, settings: {
+    toProps: {opacity: 100 / 100},
+    fromParams: {opacity: 0 / 100},
+    duration: 0.3 * 1000,
+    repeat: 1,
+    easing: Adf.animate.Easing.Linear.None
+    }, onUpdate: AdfAnimateOpacity, groups: [AnimParentID], activationDelay: 7 * 1000
+});
+
+/*#/#*//*#i70.i73.animations-rotate.js:animations-rotate/js*/
+Adf.animate.createAnimation({
+    element: ADFAnimTarget_i70, settings: {
+    toProps: {rotate: 10},
+    fromParams: {rotate: 0},
+    duration: 1 * 1000,
+    repeat: 1,
+    easing: Adf.animate.Easing.Linear.None
+    }, onUpdate: AdfAnimateRotate, groups: [AnimParentID], activationDelay: 8 * 1000
+});
+
+/*#/#*//*#i70.i74.animations-rotate.js:animations-rotate/js*/
+Adf.animate.createAnimation({
+    element: ADFAnimTarget_i70, settings: {
+    toProps: {rotate: -10},
+    fromParams: {rotate: 10},
+    duration: 1 * 1000,
+    repeat: 1,
+    easing: Adf.animate.Easing.Linear.None
+    }, onUpdate: AdfAnimateRotate, groups: [AnimParentID], activationDelay: 9 * 1000
+});
+
+/*#/#*//*#i70.i75.animations-rotate.js:animations-rotate/js*/
+Adf.animate.createAnimation({
+    element: ADFAnimTarget_i70, settings: {
+    toProps: {rotate: 10},
+    fromParams: {rotate: -10},
+    duration: 1 * 1000,
+    repeat: 1,
+    easing: Adf.animate.Easing.Linear.None
+    }, onUpdate: AdfAnimateRotate, groups: [AnimParentID], activationDelay: 10 * 1000
+});
+
+/*#/#*//*#i70.i76.animations-rotate.js:animations-rotate/js*/
+Adf.animate.createAnimation({
+    element: ADFAnimTarget_i70, settings: {
+    toProps: {rotate: -10},
+    fromParams: {rotate: 10},
+    duration: 1 * 1000,
+    repeat: 1,
+    easing: Adf.animate.Easing.Linear.None
+    }, onUpdate: AdfAnimateRotate, groups: [AnimParentID], activationDelay: 11 * 1000
+});
+
+/*#/#*//*#i70.i77.animations-rotate.js:animations-rotate/js*/
+Adf.animate.createAnimation({
+    element: ADFAnimTarget_i70, settings: {
+    toProps: {rotate: 10},
+    fromParams: {rotate: -10},
+    duration: 1 * 1000,
+    repeat: 1,
+    easing: Adf.animate.Easing.Linear.None
+    }, onUpdate: AdfAnimateRotate, groups: [AnimParentID], activationDelay: 12 * 1000
+});
+
+/*#/#*//*#i70.i78.animations-rotate.js:animations-rotate/js*/
+Adf.animate.createAnimation({
+    element: ADFAnimTarget_i70, settings: {
+    toProps: {rotate: -10},
+    fromParams: {rotate: 10},
+    duration: 1 * 1000,
+    repeat: 1,
+    easing: Adf.animate.Easing.Linear.None
+    }, onUpdate: AdfAnimateRotate, groups: [AnimParentID], activationDelay: 13 * 1000
+});
+
+/*#/#*//*#i70.i79.animations-rotate.js:animations-rotate/js*/
+Adf.animate.createAnimation({
+    element: ADFAnimTarget_i70, settings: {
+    toProps: {rotate: 0},
+    fromParams: {rotate: -10},
+    duration: 1 * 1000,
+    repeat: 1,
+    easing: Adf.animate.Easing.Linear.None
+    }, onUpdate: AdfAnimateRotate, groups: [AnimParentID], activationDelay: 14 * 1000
+});
+
+/*#/#*/
+
+    if (true) AdfDocVisibilityHandler.onDocVisible(function(){Adf.animate.startAnimationsGroup(AnimParentID, 1);});
+})();
+
+/*#/#*//*#i80.image.js:image/base/js*/
+
+/*#/#*//*#i80.i81.positioning.js:positioning/base/js.2*/
+bmShow('i80');
+/*#/#*//*#i80.i82.animations.js:animations/js.1*/
+(function(){
+    var ADFAnimTarget_i82 = document.getElementById('i80');
+    var AnimParentID = 'i80';
+    var initialParamState = JSON.parse('{"opacity":1,"rotate":0,"translateX":"943px","translateY":"121px","pivotX":"0","pivotY":"0","scale":1,"x":0,"y":0}');
+    Adf.cssHelpers.addBaseTransform(ADFAnimTarget_i82, initialParamState);
+    Adf.animate.setInitialParamsForElement(ADFAnimTarget_i82, initialParamState);
+
+    /*#i82.i83.animations-fade.js:animations-fade/js.1*/
+Adf.animate.createAnimation({
+    element: ADFAnimTarget_i82, settings: {
+    toProps: {opacity: 100 / 100},
+    fromParams: {opacity: 0 / 100},
+    duration: 0.2 * 1000,
+    repeat: 1,
+    easing: Adf.animate.Easing.Linear.None
+    }, onUpdate: AdfAnimateOpacity, groups: [AnimParentID], activationDelay: 7.8 * 1000
+});
+
+/*#/#*//*#i82.i84.animations-zoom.js:animations-zoom/js*/
+Adf.animate.createAnimation({
+    element: ADFAnimTarget_i82, settings: {
+    toProps: {scale: 100 / 100},
+    fromParams: {scale: 0 / 100},
+    duration: 0.2 * 1000,
+    repeat: 1,
+    easing: Adf.animate.Easing.Linear.None
+    }, onUpdate: AdfAnimateScale, groups: [AnimParentID], activationDelay: 7.8 * 1000
+});
+
+/*#/#*//*#i82.i85.animations-move.js:animations-move/js*/
+Adf.animate.createAnimation({
+    element: ADFAnimTarget_i82, settings: {
+    toProps: calcDestinationProps(parseFloat(912), parseFloat(137), 1, AnimParentID, '0'),
+    duration: 0.2 * 1000,
+    repeat: 1,
+    easing: Adf.animate.Easing.Linear.None
+    }, onUpdate: AdfAnimateTranslateXAndY, groups: [AnimParentID], activationDelay: 7.8 * 1000
+});
+
+/*#/#*/
+
+    if (true) AdfDocVisibilityHandler.onDocVisible(function(){Adf.animate.startAnimationsGroup(AnimParentID, 1);});
+})();
+
+/*#/#*//*#i90.image.js:image/base/js*/
+
+/*#/#*//*#i90.i91.positioning.js:positioning/base/js.2*/
+bmShow('i90');
+/*#/#*//*#i86.image.js:image/base/js*/
+
+/*#/#*//*#i86.i87.positioning.js:positioning/base/js.2*/
+bmShow('i86');
+/*#/#*//*#i86.i88.animations.js:animations/js.1*/
+(function(){
+    var ADFAnimTarget_i88 = document.getElementById('i86');
+    var AnimParentID = 'i86';
+    var initialParamState = JSON.parse('{"opacity":1,"rotate":0,"translateX":"0px","translateY":"60px","pivotX":"0","pivotY":"0","scale":1,"x":0,"y":0}');
+    Adf.cssHelpers.addBaseTransform(ADFAnimTarget_i88, initialParamState);
+    Adf.animate.setInitialParamsForElement(ADFAnimTarget_i88, initialParamState);
+
+    /*#i88.i89.animations-move.js:animations-move/js*/
+Adf.animate.createAnimation({
+    element: ADFAnimTarget_i88, settings: {
+    toProps: calcDestinationProps(parseFloat(0), parseFloat(0), 1, AnimParentID, '0'),
+    duration: 0.3 * 1000,
+    repeat: 1,
+    easing: Adf.animate.Easing.Linear.None
+    }, onUpdate: AdfAnimateTranslateXAndY, groups: [AnimParentID], activationDelay: 8.5 * 1000
+});
+
+/*#/#*/
+
+    if (true) AdfDocVisibilityHandler.onDocVisible(function(){Adf.animate.startAnimationsGroup(AnimParentID, 1);});
+})();
+
+/*#/#*//*#i86.i95.actions.js:actions/base/js.1*/
+/* Name: On Click; */
+var el = document.getElementById('i86');
+
+el.addEventListener('click', function(e){
+    /*#i95.i96.actions-clicktag.js:actions-clicktag/base/js.2*/
+    window.mraid ? mraid.open(Adform.getClickURL('clickTAG')) : window.open(dhtml.getVar('clickTAG', 'https://www.qnbfinansbank.com/kobi/dijitalkopru/qnb-efinans?utm_source=allin&utm_medium=cpv&utm_campaign=dijitalkopru'), dhtml.getVar('landingPageTarget', '_blank'));
+/*#/#*/
+});
+
+if ('click' === 'click') {
+    el.style.cursor = 'pointer';
+}
+/*#/#*//*#i51.video.js:video/js.2*/
+(function(){
+    var source = [
+        { 'file': dhtml.getAsset(1) },
+        { 'file': "" },
+        { 'file': "" }
+    ];
+
+    var player = Adform.Component.VideoPlayer.create({
+        sources: source,
+        loop: false,
+        muted: true,
+        autoPlay: false,
+        poster: "assets/poster.jpg",
+        clicktag: "",
+        inview: false,
+        theme: 'v2'
+    });
+
+    var videoContainer = document.getElementById('i51');
+
+    if (player) {
+        player.addClass('');
+        player.appendTo(videoContainer);
+    }
+
+    setEventsAndListeners(player, videoContainer);
+})();
+/*#/#*//*#i51.i52.positioning.js:positioning/base/js.2*/
+bmShow('i51');
+/*#/#*//*#i51.i92.animations.js:animations/js.1*/
+(function(){
+    var ADFAnimTarget_i92 = document.getElementById('i51');
+    var AnimParentID = 'i51';
+    var initialParamState = JSON.parse('{"opacity":1,"rotate":0,"translateX":"-170px","translateY":"-244px","pivotX":"0","pivotY":"0","scale":1,"x":0,"y":0}');
+    Adf.cssHelpers.addBaseTransform(ADFAnimTarget_i92, initialParamState);
+    Adf.animate.setInitialParamsForElement(ADFAnimTarget_i92, initialParamState);
+
+    /*#i92.i93.animations-zoom.js:animations-zoom/js*/
+Adf.animate.createAnimation({
+    element: ADFAnimTarget_i92, settings: {
+    toProps: {scale: 28 / 100},
+    fromParams: {scale: 100 / 100},
+    duration: 0.5 * 1000,
+    repeat: 1,
+    easing: Adf.animate.Easing.Linear.None
+    }, onUpdate: AdfAnimateScale, groups: [AnimParentID], activationDelay: 2.5 * 1000
+});
+
+/*#/#*//*#i92.i94.animations-move.js:animations-move/js*/
+Adf.animate.createAnimation({
+    element: ADFAnimTarget_i92, settings: {
+    toProps: calcDestinationProps(parseFloat(-109), parseFloat(-247), 1, AnimParentID, '0'),
+    duration: 0.5 * 1000,
+    repeat: 1,
+    easing: Adf.animate.Easing.Linear.None
+    }, onUpdate: AdfAnimateTranslateXAndY, groups: [AnimParentID], activationDelay: 2.5 * 1000
+});
+
+/*#/#*/
+
+    if (true) AdfDocVisibilityHandler.onDocVisible(function(){Adf.animate.startAnimationsGroup(AnimParentID, 1);});
+})();
+
+/*#/#*//*#i4.visibility.js:visibility/js*/
+function bmShow(id) {
+    var el = document.getElementById(id);
+    el && el.classList.remove('visibility-hidden');
+}
+
+function bmHide(id) {
+    var el = document.getElementById(id);
+    el && el.classList.add('visibility-hidden');
+}
+/*#/#*/
+</script>
+<!--#/#--><!--#meta:common/meta--><!--/*#i1.core.meta:core/meta*/version: 2;/*#/#*//*#i2.image.meta:image/meta*/
+name: arkaplan.jpg; fileId: ; sourceTypeId: assetImages; autoDimensions: 1;
+customName: false;
+/*#/#*//*#i2.i3.positioning.meta:positioning/meta.2*/
+data: /*!*/{"keepAspectRatio":true}/*!*/;
+/*#/#*//*#i5.image.meta:image/meta*/
+name: logo.png; fileId: ; sourceTypeId: assetImages; autoDimensions: 1;
+customName: false;
+/*#/#*//*#i5.i6.positioning.meta:positioning/meta.2*/
+data: /*!*/{"keepAspectRatio":true}/*!*/;
+/*#/#*//*#i7.image.meta:image/meta*/
+name: semih.png; fileId: ; sourceTypeId: assetImages; autoDimensions: 1;
+customName: false;
+/*#/#*//*#i7.i8.positioning.meta:positioning/meta.2*/
+data: /*!*/{"keepAspectRatio":true}/*!*/;
+/*#/#*//*#i7.i9.animations.meta:animations/meta.1*/
+name: animations 1;
+customName: ;
+animation 
+
+/*#/#*//*#i9.i10.animations-fade.meta:animations-fade/meta.1*/
+name: Fade 1;
+customName: ;
+/*#/#*//*#i9.i11.animations-fade.meta:animations-fade/meta.1*/
+name: Fade 2;
+customName: ;
+/*#/#*//*#i9.i12.animations-fade.meta:animations-fade/meta.1*/
+name: Fade 3;
+customName: ;
+/*#/#*//*#i53.image.meta:image/meta*/
+name: semih-text.png; fileId: ; sourceTypeId: assetImages; autoDimensions: 1;
+customName: false;
+/*#/#*//*#i53.i54.positioning.meta:positioning/meta.2*/
+data: /*!*/{"keepAspectRatio":true}/*!*/;
+/*#/#*//*#i53.i57.animations.meta:animations/meta.1*/
+name: animations 1;
+customName: ;
+animation 
+
+/*#/#*//*#i57.i58.animations-fade.meta:animations-fade/meta.1*/
+name: Fade 1;
+customName: ;
+/*#/#*//*#i57.i59.animations-move.meta:animations-move/meta*/
+name: Move 1;
+customName: ;
+/*#/#*//*#i55.image.meta:image/meta*/
+name: dunya-bilardo.png; fileId: ; sourceTypeId: assetImages; autoDimensions: 1;
+customName: false;
+/*#/#*//*#i55.i56.positioning.meta:positioning/meta.2*/
+data: /*!*/{"keepAspectRatio":true}/*!*/;
+/*#/#*//*#i55.i60.animations.meta:animations/meta.1*/
+name: animations 1;
+customName: ;
+animation 
+
+/*#/#*//*#i60.i61.animations-fade.meta:animations-fade/meta.1*/
+name: Fade 1;
+customName: ;
+/*#/#*//*#i60.i62.animations-move.meta:animations-move/meta*/
+name: Move 1;
+customName: ;
+/*#/#*//*#i17.image.meta:image/meta*/
+name: e-fatura-zemin.png; fileId: ; sourceTypeId: assetImages; autoDimensions: 1;
+customName: false;
+/*#/#*//*#i17.i18.positioning.meta:positioning/meta.2*/
+data: /*!*/{"keepAspectRatio":true}/*!*/;
+/*#/#*//*#i17.i22.animations.meta:animations/meta.1*/
+name: animations 1;
+customName: ;
+animation 
+
+/*#/#*//*#i22.i23.animations-fade.meta:animations-fade/meta.1*/
+name: Fade 1;
+customName: ;
+/*#/#*//*#i13.image.meta:image/meta*/
+name: e-fatura.png; fileId: ; sourceTypeId: assetImages; autoDimensions: 1;
+customName: false;
+/*#/#*//*#i13.i14.positioning.meta:positioning/meta.2*/
+data: /*!*/{"keepAspectRatio":true}/*!*/;
+/*#/#*//*#i13.i19.animations.meta:animations/meta.1*/
+name: animations 1;
+customName: ;
+animation 
+
+/*#/#*//*#i19.i20.animations-zoom.meta:animations-zoom/meta*/
+name: Zoom 1;
+customName: ;
+/*#/#*//*#i19.i21.animations-move.meta:animations-move/meta*/
+name: Move 1;
+customName: ;
+/*#/#*//*#i29.image.meta:image/meta*/
+name: e-defter-zemin.png; fileId: ; sourceTypeId: assetImages; autoDimensions: 1;
+customName: false;
+/*#/#*//*#i29.i30.positioning.meta:positioning/meta.2*/
+data: /*!*/{"keepAspectRatio":true}/*!*/;
+/*#/#*//*#i29.i31.animations.meta:animations/meta.1*/
+name: animations 1;
+customName: ;
+animation 
+
+/*#/#*//*#i31.i32.animations-fade.meta:animations-fade/meta.1*/
+name: Fade 1;
+customName: ;
+/*#/#*//*#i24.image.meta:image/meta*/
+name: e-defter.png; fileId: ; sourceTypeId: assetImages; autoDimensions: 1;
+customName: false;
+/*#/#*//*#i24.i25.positioning.meta:positioning/meta.2*/
+data: /*!*/{"keepAspectRatio":true}/*!*/;
+/*#/#*//*#i24.i26.animations.meta:animations/meta.1*/
+name: animations 1;
+customName: ;
+animation 
+
+/*#/#*//*#i26.i27.animations-zoom.meta:animations-zoom/meta*/
+name: Zoom 1;
+customName: ;
+/*#/#*//*#i26.i28.animations-move.meta:animations-move/meta*/
+name: Move 1;
+customName: ;
+/*#/#*//*#i33.image.meta:image/meta*/
+name: e-irsaliye-zemin.png; fileId: ; sourceTypeId: assetImages; autoDimensions: 1;
+customName: false;
+/*#/#*//*#i33.i34.positioning.meta:positioning/meta.2*/
+data: /*!*/{"keepAspectRatio":true}/*!*/;
+/*#/#*//*#i33.i44.animations.meta:animations/meta.1*/
+name: animations 1;
+customName: ;
+animation 
+
+/*#/#*//*#i44.i45.animations-fade.meta:animations-fade/meta.1*/
+name: Fade 1;
+customName: ;
+/*#/#*//*#i35.image.meta:image/meta*/
+name: e-irsaliye.png; fileId: ; sourceTypeId: assetImages; autoDimensions: 1;
+customName: false;
+/*#/#*//*#i35.i36.positioning.meta:positioning/meta.2*/
+data: /*!*/{"keepAspectRatio":true}/*!*/;
+/*#/#*//*#i35.i37.animations.meta:animations/meta.1*/
+name: animations 1;
+customName: ;
+animation 
+
+/*#/#*//*#i37.i38.animations-zoom.meta:animations-zoom/meta*/
+name: Zoom 1;
+customName: ;
+/*#/#*//*#i37.i39.animations-move.meta:animations-move/meta*/
+name: Move 1;
+customName: ;
+/*#/#*//*#i40.image.meta:image/meta*/
+name: e-arsiv-arka.png; fileId: ; sourceTypeId: assetImages; autoDimensions: 1;
+customName: false;
+/*#/#*//*#i40.i41.positioning.meta:positioning/meta.2*/
+data: /*!*/{"keepAspectRatio":true}/*!*/;
+/*#/#*//*#i40.i49.animations.meta:animations/meta.1*/
+name: animations 1;
+customName: ;
+animation 
+
+/*#/#*//*#i49.i50.animations-fade.meta:animations-fade/meta.1*/
+name: Fade 1;
+customName: ;
+/*#/#*//*#i42.image.meta:image/meta*/
+name: e-arsiv.png; fileId: ; sourceTypeId: assetImages; autoDimensions: 1;
+customName: false;
+/*#/#*//*#i42.i43.positioning.meta:positioning/meta.2*/
+data: /*!*/{"keepAspectRatio":true}/*!*/;
+/*#/#*//*#i42.i46.animations.meta:animations/meta.1*/
+name: animations 1;
+customName: ;
+animation 
+
+/*#/#*//*#i46.i47.animations-zoom.meta:animations-zoom/meta*/
+name: Zoom 1;
+customName: ;
+/*#/#*//*#i46.i48.animations-move.meta:animations-move/meta*/
+name: Move 1;
+customName: ;
+/*#/#*//*#i63.image.meta:image/meta*/
+name: text.png; fileId: ; sourceTypeId: assetImages; autoDimensions: 1;
+customName: false;
+/*#/#*//*#i63.i64.positioning.meta:positioning/meta.2*/
+data: /*!*/{"keepAspectRatio":true}/*!*/;
+/*#/#*//*#i63.i65.animations.meta:animations/meta.1*/
+name: animations 1;
+customName: ;
+animation 
+
+/*#/#*//*#i65.i66.animations-fade.meta:animations-fade/meta.1*/
+name: Fade 1;
+customName: ;
+/*#/#*//*#i65.i67.animations-move.meta:animations-move/meta*/
+name: Move 1;
+customName: ;
+/*#/#*//*#i68.image.meta:image/meta*/
+name: yuvarlak.png; fileId: ; sourceTypeId: assetImages; autoDimensions: 1;
+customName: false;
+/*#/#*//*#i68.i69.positioning.meta:positioning/meta.2*/
+data: /*!*/{"keepAspectRatio":true}/*!*/;
+/*#/#*//*#i68.i70.animations.meta:animations/meta.1*/
+name: animations 1;
+customName: ;
+animation 
+
+/*#/#*//*#i70.i71.animations-zoom.meta:animations-zoom/meta*/
+name: Zoom 1;
+customName: ;
+/*#/#*//*#i70.i72.animations-fade.meta:animations-fade/meta.1*/
+name: Fade 1;
+customName: ;
+/*#/#*//*#i70.i73.animations-rotate.meta:animations-rotate/meta*/
+name: Rotate 1;
+customName: ;
+/*#/#*//*#i70.i74.animations-rotate.meta:animations-rotate/meta*/
+name: Rotate 2;
+customName: ;
+/*#/#*//*#i70.i75.animations-rotate.meta:animations-rotate/meta*/
+name: Rotate 3;
+customName: ;
+/*#/#*//*#i70.i76.animations-rotate.meta:animations-rotate/meta*/
+name: Rotate 4;
+customName: ;
+/*#/#*//*#i70.i77.animations-rotate.meta:animations-rotate/meta*/
+name: Rotate 5;
+customName: ;
+/*#/#*//*#i70.i78.animations-rotate.meta:animations-rotate/meta*/
+name: Rotate 6;
+customName: ;
+/*#/#*//*#i70.i79.animations-rotate.meta:animations-rotate/meta*/
+name: Rotate 7;
+customName: ;
+/*#/#*//*#i80.image.meta:image/meta*/
+name: baloncuk.png; fileId: ; sourceTypeId: assetImages; autoDimensions: 1;
+customName: false;
+/*#/#*//*#i80.i81.positioning.meta:positioning/meta.2*/
+data: /*!*/{"keepAspectRatio":true}/*!*/;
+/*#/#*//*#i80.i82.animations.meta:animations/meta.1*/
+name: animations 1;
+customName: ;
+animation 
+
+/*#/#*//*#i82.i83.animations-fade.meta:animations-fade/meta.1*/
+name: Fade 1;
+customName: ;
+/*#/#*//*#i82.i84.animations-zoom.meta:animations-zoom/meta*/
+name: Zoom 1;
+customName: ;
+/*#/#*//*#i82.i85.animations-move.meta:animations-move/meta*/
+name: Move 1;
+customName: ;
+/*#/#*//*#i90.image.meta:image/meta*/
+name: border.png; fileId: ; sourceTypeId: assetImages; autoDimensions: 1;
+customName: false;
+/*#/#*//*#i90.i91.positioning.meta:positioning/meta.2*/
+data: /*!*/{"keepAspectRatio":true}/*!*/;
+/*#/#*//*#i86.image.meta:image/meta*/
+name: cta.png; fileId: ; sourceTypeId: assetImages; autoDimensions: 1;
+customName: false;
+/*#/#*//*#i86.i87.positioning.meta:positioning/meta.2*/
+data: /*!*/{"keepAspectRatio":true}/*!*/;
+/*#/#*//*#i86.i88.animations.meta:animations/meta.1*/
+name: animations 1;
+customName: ;
+animation 
+
+/*#/#*//*#i88.i89.animations-move.meta:animations-move/meta*/
+name: Move 1;
+customName: ;
+/*#/#*//*#i51.video.meta:video/meta.2*/
+name: Video 1; fileId_MP4: 1; fileId_WEBM: ; fileId_OGV: ; clicktag: clickTAG2;
+posterSourceType: assetImages; posterFileId: ;
+/*#/#*//*#i51.i52.positioning.meta:positioning/meta.2*/
+data: /*!*/{"keepAspectRatio":true}/*!*/;
+/*#/#*//*#i51.i92.animations.meta:animations/meta.1*/
+name: animations 1;
+customName: ;
+animation 
+
+/*#/#*//*#i92.i93.animations-zoom.meta:animations-zoom/meta*/
+name: Zoom 1;
+customName: ;
+/*#/#*//*#i92.i94.animations-move.meta:animations-move/meta*/
+name: Move 1;
+customName: ;
+/*#/#*/--><!--#/#-->

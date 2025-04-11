@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<adf>
+  <banner>
+    <details>
+      <uniqueId>3f0310ada6aa290c70958a1e88fe2963</uniqueId>
+      <format>Standard</format>
+      <name><![CDATA[QNB-Dijital-Kopru-E-Donusum-970x250]]></name>
+      <events>1</events>
+    </details>
+    <settings>
+      <responsiveWidth>0</responsiveWidth>
+      <responsiveHeight>0</responsiveHeight>
+      <landingPageTarget>_blank</landingPageTarget>
+    </settings>
+    <assets>
+      <asset>
+        <sourceType>src</sourceType>
+        <fileName>main</fileName>
+        <clickTagNames>
+          <clickTagName><![CDATA[clickTAG]]></clickTagName>
+        </clickTagNames>
+        <eventIds/>
+      </asset>
+      <asset>
+        <sourceType>videoSrc</sourceType>
+        <fileName><![CDATA[video.mp4]]></fileName>
+      </asset>
+    </assets>
+    <bannerClickTags>
+      <bannerClickTag name="clickTAG" displayName="clickTAG"><![CDATA[https://www.qnbfinansbank.com/kobi/dijitalkopru/qnb-efinans?utm_source=allin&utm_medium=cpv&utm_campaign=dijitalkopru]]></bannerClickTag>
+    </bannerClickTags>
+    <bannerEvents/>
+    <variables/>
+    <video>
+      <details/>
+      <settings>
+        <loop>1</loop>
+        <autoPlay>1</autoPlay>
+        <soundOn>0</soundOn>
+      </settings>
+    </video>
+  </banner>
+</adf>
